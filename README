@@ -39,7 +39,18 @@ This is the git repository for Toptal demo project - TravelPlanner, the sources 
 
 --------------------------------------- Server/Backend ---------------------------------------
 Assume you are using Ubuntu or MAC OSX as your server, to setup the backend, follow the steps below:
-1. Install mongodb.
+1. Install mongodb. NOTE: for the sake of security, I have added authentication info for my backend nodejs app when connecting to MongoDB, so when setting up, you need to add a user in mongodb, type the following command under mongodb command line:
+		use toptal_demo
+		db.createUser({
+			user: "demo_admin",
+			pwd: "123456",
+			roles: ["readWrite"]
+		});
+		use admin
+		db.shutdownServer();
+now restart mongodb with:
+		mongod --auth &
+which will enable mongodb authentication when anyone tries to connect to mongodb.
 2. Install node.js and npm.
 3. Install Sails.js by type the following command in terminal:
 		sudo npm -g install sails
