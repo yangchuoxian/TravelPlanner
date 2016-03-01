@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-sm-3">
+        <h5>
+            <span ng-bind="data.paginationInfo.fromIndex"></span>
+            <span> - </span>
+            <span ng-bind="data.paginationInfo.toIndex"></span>
+            <span> / </span>
+            <span ng-bind="data.paginationInfo.total"></span>
+        </h5>
+    </div>
+    <div class="col-sm-9 btn-group">
+        <ul class="pull-right pagination">
+            <li ng-class="{'disabled':data.paginationInfo.currentPage==1}">
+                <a href="#" class="pagination-control-button" ng-click="paginationService.lastPage($event, data)"><i
+                    class="fa fa-arrow-left"></i></a>
+            </li>
+            <li ng-class="{'disabled':data.paginationInfo.currentPage==1}">
+                <a href="#" ng-click="paginationService.firstPage($event, data)" class="pagination-control-button"><i
+                    class="fa fa-chevron-left"></i></a>
+            </li>
+            <li ng-repeat="pageIndex in data.paginationInfo.showingPages"
+                ng-class="{'active':data.paginationInfo.currentPage==pageIndex}">
+                <a href="#" ng-click="paginationService.getPage($event, pageIndex, data)">{{pageIndex}}</a>
+            </li>
+            <li ng-class="{'disabled':data.paginationInfo.currentPage==data.paginationInfo.totalPages}">
+                <a href="#" ng-click="paginationService.finalPage($event, data)" class="pagination-control-button"><i
+                    class="fa fa-chevron-right"></i></a>
+            </li>
+            <li ng-class="{'disabled':data.paginationInfo.currentPage==data.paginationInfo.totalPages}">
+                <a href="#" ng-click="paginationService.nextPage($event, data)" class="pagination-control-button"><i
+                    class="fa fa-arrow-right"></i></a>
+            </li>
+        </ul>
+    </div>
+</div>

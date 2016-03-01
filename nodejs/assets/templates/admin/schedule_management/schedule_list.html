@@ -1,0 +1,122 @@
+<!-- SCHEDULE MANAGEMENT PAGE TITLE  -->
+<div class="row page-title" id="title">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li class="active"><a href="#/schedule_list"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Schedule list</a></li>
+					<li><a href="#/new_schedule"><i class="fa fa-plus"></i>&nbsp;&nbsp;New schedule</a></li>
+				</ol>
+			</div>			
+		</div>
+	</div>
+</div>
+<!-- END OF SCHEDULE MANAGEMENT PAGE TITLE -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-sm-4">
+							<i ng-class="{'fa fa-calendar': data.listType.index==1||data.listType.index==3||data.listType.index==4,'fa fa-search': data.listType.index==2}"></i>&nbsp;&nbsp;{{data.listType.name}}
+						</div>
+						<div class="col-sm-4 col-sm-offset-4 text-right">
+							<ul class="line-seperated-list">
+								<li><a href="#" ng-click="listService.getAll($event, '/get_schedules', data)">All schedules&nbsp;</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-2">
+						<select class="form-control" ng-model="data.selectedAction" ng-options="action.name for action in actionOptions">
+							<option value="">Bulk action</option>
+						</select>
+					</div>
+					<div class="col-sm-1 no-left-padding">
+						<button type="button" class="btn btn-info" ng-click="listService.deleteMultipleEntries(data, '/delete_schedule')">
+							Execute
+						</button>
+					</div>
+					<div class="col-sm-6">
+					    <div class="col-sm-5">
+					        <input type="datetime" view="date" date-time min-view="date" ng-model="timePeriod.startTime" class="form-control" required placeholder="Scheules after">
+					    </div>
+					    <div class="col-sm-5">
+					        <input type="datetime" view="date" date-time min-view="date" ng-model="timePeriod.endTime" class="form-control" required placeholder="Schedules before">
+					    </div>
+					    <div class="col-sm-2 no-left-padding">
+					        <button type="button" class="btn btn-info" ng-click="showSchedulesWithinTimePeriod()">Fliter
+					        </button>
+					    </div>
+					</div>
+					<div class="col-sm-3">
+						<form ng-submit="listService.search('/search_schedules', data)">
+							<div class="input-group">
+								<input type="search" class="form-control" ng-model="data.keyword" name="keyword" placeholder="Search" required>
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<table class="table table-bordered table-striped table-hover">
+						<thead>
+							<tr>
+								<th class="first-table-header">
+									<input type="checkbox" ng-click="listService.selectAllEntries(data)" ng-checked="data.selectedIds.length==data.entries.length&&data.entries.length!==0">
+								</th>
+								<th>Username</th>
+								<th>Departure</th>
+								<th>Arrival</th>
+								<th>
+									<a href="#" ng-click="listService.order($event, 'startDate', '/order_schedules', data)">
+										Start date&nbsp;
+										<span class="pull-right" ng-class="{'fa fa-sort color-darker':data.listType.orderBy!='startDate','fa fa-sort-asc':data.listType.orderBy=='startDate'&&data.listType.order=='asc','fa fa-sort-desc':data.listType.orderBy=='startDate'&&data.listType.order=='desc'}"></span>
+									</a>
+								</th>
+								<th>
+									<a href="#" ng-click="listService.order($event, 'endDate', '/order_schedules', data)">
+										End date&nbsp;
+										<span class="pull-right" ng-class="{'fa fa-sort color-darker':data.listType.orderBy!='endDate','fa fa-sort-asc':data.listType.orderBy=='endDate'&&data.listType.order=='asc','fa fa-sort-desc':data.listType.orderBy=='endDate'&&data.listType.order=='desc'}"></span>
+									</a>
+								</th>
+								<th class="last-table-header">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="scheduleInfo in data.entries" class="row-animate">
+								<th><input type="checkbox" ng-click="listService.selectEntry(scheduleInfo, data)" ng-checked="data.selectedIds.indexOf(scheduleInfo.id)!=-1"></th>
+								<th ng-bind="scheduleInfo.username"></th>
+								<th ng-bind="scheduleInfo.cityOfDeparture"></th>
+								<th ng-bind="scheduleInfo.cityOfArrival"></th>
+								<th ng-bind="scheduleInfo.startDate"></th>
+								<th ng-bind="scheduleInfo.endDate"></th>
+								<th>
+									<a href="#/schedule_detail/{{scheduleInfo.id}}" class="table-action">
+										<i class="fa fa-edit"></i>
+									</a>
+									&nbsp;&nbsp;
+									<button class="table-action" ng-click="listService.deleteEntry(scheduleInfo, ' this schedule', data, '/delete_schedule')">
+										<i class="fa fa-trash"></i>
+									</button>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- PAGINATION -->
+				<div ng-include src="'/templates/admin/partials/pagination.html'"></div>
+				<!-- END OF PAGINATION -->
+				<!-- CONFIRM BOX -->
+				<div ng-include src="'/templates/admin/partials/confirm_modal.html'"></div>
+				<!-- END OF CONFIRM BOX -->
+			</div>
+		</div>
+	</div>
+</div>

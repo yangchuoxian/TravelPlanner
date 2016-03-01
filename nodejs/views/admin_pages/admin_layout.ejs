@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= sails.config.constants.projectName + ' ' + pageTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="csrf-token" content="<%= _csrf %>"/>
+    <% if (process.env.NODE_ENV == 'development') { %>
+    <link rel="stylesheet" href="/styles/admin/admin.css">
+    <link rel="stylesheet" href="/styles/admin/bootstrap.css">
+    <link rel="stylesheet" href="/styles/admin/datepicker.css">
+    <link rel="stylesheet" href="/styles/admin/font-awesome.css">
+    <% } else { %>
+    <link rel="stylesheet" href="/styles/admin/production.admin.min.css">
+    <% } %>
+</head>
+<body ng-app="vt-admin-app">
+<%- body %>
+<% if (process.env.NODE_ENV == 'development') { %>
+<script src="/js/admin/lib/angular.js"></script>
+<script src="/js/admin/lib/angular-animate.js"></script>
+<script src="/js/admin/lib/angular-ui-router.js"></script>
+<script src="/js/admin/lib/ui-bootstrap-tpls.js"></script>
+<script src="/js/admin/lib/angular-file-upload.js"></script>
+<script src="/js/admin/lib/datepicker.min.js"></script>
+<script src="/js/admin/admin_values.js"></script>
+<script src="/js/admin/admin_config.js"></script>
+<script src="/js/admin/admin_directives.js"></script>
+<script src="/js/admin/admin_services.js"></script>
+<script src="/js/admin/admin_controllers.js"></script>
+<% } else { %>
+<script src="/js/admin/production.admin.min.js"></script>
+<% } %>
+</body>
+</html>

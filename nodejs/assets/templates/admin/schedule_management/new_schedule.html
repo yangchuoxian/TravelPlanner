@@ -1,0 +1,97 @@
+<!-- SCHEDULE MANAGEMENT PAGE TITLE -->
+<div class="row page-title" id="title">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li class="active"><a href="#/schedule_list"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Schedule list</a></li>
+					<li><a href="#/new_schedule"><i class="fa fa-plus"></i>&nbsp;&nbsp;New schedule</a></li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OF SCHEDULE MANAGEMENT PAGE TITLE -->
+<!-- MESSAGE TO TELL WHETHER THE SUBMISSION IS SUCCEEDED OR NOT -->
+<div class="row validation-message fade-out" ng-if="data.newScheduleSubmitHintMessage" hint-message message-content="data.newScheduleSubmitHintMessage">
+	<div class="col-sm-12">
+		<div ng-class="{'error-message-box':!data.newScheduleSubmitSucceeded,'success-message-box':data.newScheduleSubmitSucceeded}">
+			&nbsp;&nbsp;&nbsp;{{data.newScheduleSubmitHintMessage}}
+		</div>
+	</div>
+</div>
+<!-- END OF MESSAGE TO TELL WHETHER THE SUBMISSION IS SUCCEEDED OR NOT -->
+<!-- SCHEDULE BASIC INFO -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-sm-4"><i class="fa fa-plus"></i>&nbsp;&nbsp;New schedule</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<form action="/submit_new_schedule" method="post" class="form-horizontal" ng-submit="submitNewSchedule($event)">
+					<div class="form-group"><!-- Username -->
+						<label for="username" class="col-sm-2 control-label">Username&nbsp;&nbsp;</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="username" id="username" ng-model="data.schedule.username" maxlength="30" required placeholder="Username">
+						</div>
+						<div class="col-sm-4">
+							<div class="col-sm-12 alert alert-warning" role="alert">User that this schedule belongs to</div>
+						</div>
+					</div><!-- End of username -->
+					<div class="form-group"><!-- Start date -->
+						<label for="startdate" class="col-sm-2 control-label">Start date&nbsp;&nbsp;</label>	
+						<div class="col-sm-6">
+							<input type="datetime" view="date" date-time ng-model="data.schedule.startDate" class="form-control" id="startdate" required>
+						</div>
+						<div class="col-sm-4">
+							<div class="alert alert-warning">Trip start date</div>
+						</div>
+					</div><!-- End of start date -->
+					<div class="form-group"><!-- End date -->
+						<label for="enddate" class="col-sm-2 control-label">End date&nbsp;&nbsp;</label>	
+						<div class="col-sm-6">
+							<input type="datetime" view="date" date-time ng-model="data.schedule.endDate" class="form-control" id="enddate" required>
+						</div>
+						<div class="col-sm-4">
+							<div class="alert alert-warning">Trip end date</div>
+						</div>
+					</div><!-- End of end date -->
+					<div class="form-group"><!-- City of departure -->
+						<label for="departure-city" class="col-sm-2 control-label">Departure city&nbsp;&nbsp;</label>	
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="departure-city" id="departure-city" ng-model="data.schedule.cityOfDeparture" maxlength="30" required placeholder="City of departure">
+						</div>
+						<div class="col-sm-4">
+							<div class="col-sm-12 alert alert-warning" role="alert">Trip departure city</div>
+						</div>
+					</div><!-- End of city of departure -->
+					<div class="form-group"><!-- City of arrival -->
+						<label for="arrival-city" class="col-sm-2 control-label">Arrival city&nbsp;&nbsp;</label>	
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="arrival-city" id="arrival-city" ng-model="data.schedule.cityOfArrival" maxlength="30" required placeholder="City of arrival">
+						</div>
+						<div class="col-sm-4">
+							<div class="col-sm-12 alert alert-warning" role="alert">Trip arrival city</div>
+						</div>
+					</div><!-- End of city of arrival -->
+					<div class="form-group"><!-- Trip comment -->
+						<label for="comment" class="col-sm-2 control-label">Comment</label>	
+						<div class="col-sm-6">
+							<textarea name="comment" id="comment" cols="30" rows="10" class="form-control" ng-model="data.schedule.comment"></textarea>
+						</div>
+					</div><!-- End of trip comment -->
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-2">
+							<input type="submit" class="btn btn-info btn-block" value="Submit">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

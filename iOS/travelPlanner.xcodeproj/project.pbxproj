@@ -1,0 +1,878 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E444FCB61C830C3A00D302BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCB51C830C3A00D302BF /* LoginViewController.swift */; };
+		E444FCBC1C83118400D302BF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E444FCBB1C83118400D302BF /* MBProgressHUD.m */; };
+		E444FCBE1C8312C100D302BF /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCBD1C8312C100D302BF /* Appearance.swift */; };
+		E444FCC11C8313AA00D302BF /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCC01C8313AA00D302BF /* UITextViewExtension.swift */; };
+		E444FCC31C8313ED00D302BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCC21C8313ED00D302BF /* Constants.swift */; };
+		E444FCC51C83158400D302BF /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCC41C83158400D302BF /* Toolbox.swift */; };
+		E444FCC91C83198000D302BF /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E444FCC81C83198000D302BF /* KeychainItemWrapper.m */; };
+		E444FCCB1C831B9F00D302BF /* Singleton_CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCCA1C831B9F00D302BF /* Singleton_CurrentUser.swift */; };
+		E444FCD11C832B3500D302BF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444FCD01C832B3500D302BF /* RegisterViewController.swift */; };
+		E453B2611C83CD8E00B844E4 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B25C1C83CD8E00B844E4 /* RECommonFunctions.m */; };
+		E453B2621C83CD8E00B844E4 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B25E1C83CD8E00B844E4 /* RESideMenu.m */; };
+		E453B2631C83CD8E00B844E4 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2601C83CD8E00B844E4 /* UIViewController+RESideMenu.m */; };
+		E453B2651C83CEF600B844E4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2641C83CEF600B844E4 /* MainViewController.swift */; };
+		E453B2671C83CF2C00B844E4 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2661C83CF2C00B844E4 /* SideMenuViewController.swift */; };
+		E453B2691C83DEAC00B844E4 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2681C83DEAC00B844E4 /* UserInfoViewController.swift */; };
+		E453B26B1C83E0B600B844E4 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B26A1C83E0B600B844E4 /* ScheduleViewController.swift */; };
+		E453B26D1C83FD2100B844E4 /* ChangeUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B26C1C83FD2100B844E4 /* ChangeUserInfoViewController.swift */; };
+		E453B26F1C83FD4300B844E4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B26E1C83FD4300B844E4 /* ChangePasswordViewController.swift */; };
+		E453B2741C841FF300B844E4 /* MonthlyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2731C841FF300B844E4 /* MonthlyScheduleViewController.swift */; };
+		E453B2781C8434F500B844E4 /* FilterScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2771C8434F500B844E4 /* FilterScheduleTableViewController.swift */; };
+		E453B28C1C843C3000B844E4 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B27B1C843C3000B844E4 /* AbstractActionSheetPicker.m */; };
+		E453B28D1C843C3000B844E4 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B27D1C843C3000B844E4 /* ActionSheetCustomPicker.m */; };
+		E453B28E1C843C3000B844E4 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2801C843C3000B844E4 /* ActionSheetDatePicker.m */; };
+		E453B28F1C843C3000B844E4 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2821C843C3000B844E4 /* ActionSheetDistancePicker.m */; };
+		E453B2901C843C3000B844E4 /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2841C843C3000B844E4 /* ActionSheetLocalePicker.m */; };
+		E453B2911C843C3000B844E4 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2871C843C3000B844E4 /* ActionSheetStringPicker.m */; };
+		E453B2921C843C3000B844E4 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2891C843C3000B844E4 /* DistancePickerView.m */; };
+		E453B2931C843C3000B844E4 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B28B1C843C3000B844E4 /* SWActionSheet.m */; };
+		E453B2951C843E7200B844E4 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2941C843E7200B844E4 /* NSDateExtension.swift */; };
+		E453B2981C8446CC00B844E4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2971C8446CC00B844E4 /* Schedule.swift */; };
+		E453B29A1C845A4A00B844E4 /* SearchScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2991C845A4A00B844E4 /* SearchScheduleViewController.swift */; };
+		E453B29C1C84632600B844E4 /* ScheduleResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B29B1C84632600B844E4 /* ScheduleResultsTableViewController.swift */; };
+		E453B29E1C846BA600B844E4 /* ScheduleDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B29D1C846BA600B844E4 /* ScheduleDetailTableViewController.swift */; };
+		E453B2A41C848D4100B844E4 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2A11C848D4100B844E4 /* MGSwipeButton.m */; };
+		E453B2A51C848D4100B844E4 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E453B2A31C848D4100B844E4 /* MGSwipeTableCell.m */; };
+		E453B2A71C8495BD00B844E4 /* NewScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453B2A61C8495BD00B844E4 /* NewScheduleTableViewController.swift */; };
+		E46123A91C82D19600D24708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46123A81C82D19600D24708 /* AppDelegate.swift */; };
+		E46123AE1C82D19600D24708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46123AC1C82D19600D24708 /* Main.storyboard */; };
+		E46123B01C82D19600D24708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46123AF1C82D19600D24708 /* Assets.xcassets */; };
+		E46123B31C82D19600D24708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46123B11C82D19600D24708 /* LaunchScreen.storyboard */; };
+		E46123BE1C82D19700D24708 /* travelPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46123BD1C82D19700D24708 /* travelPlannerTests.swift */; };
+		E46123C91C82D19700D24708 /* travelPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46123C81C82D19700D24708 /* travelPlannerUITests.swift */; };
+		E4869EAD1C8537E900A9E8F7 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869E971C8537E900A9E8F7 /* JTCalendar.m */; };
+		E4869EAE1C8537E900A9E8F7 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869E991C8537E900A9E8F7 /* JTCalendarAppearance.m */; };
+		E4869EAF1C8537E900A9E8F7 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869E9B1C8537E900A9E8F7 /* JTCalendarContentView.m */; };
+		E4869EB01C8537E900A9E8F7 /* JTCalendarDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869E9D1C8537E900A9E8F7 /* JTCalendarDataCache.m */; };
+		E4869EB11C8537E900A9E8F7 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869E9F1C8537E900A9E8F7 /* JTCalendarDayView.m */; };
+		E4869EB21C8537E900A9E8F7 /* JTCalendarMenuMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EA11C8537E900A9E8F7 /* JTCalendarMenuMonthView.m */; };
+		E4869EB31C8537E900A9E8F7 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EA31C8537E900A9E8F7 /* JTCalendarMenuView.m */; };
+		E4869EB41C8537E900A9E8F7 /* JTCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EA51C8537E900A9E8F7 /* JTCalendarMonthView.m */; };
+		E4869EB51C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EA71C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.m */; };
+		E4869EB61C8537E900A9E8F7 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EAA1C8537E900A9E8F7 /* JTCalendarWeekView.m */; };
+		E4869EB71C8537E900A9E8F7 /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4869EAC1C8537E900A9E8F7 /* JTCircleView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E46123BA1C82D19600D24708 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E461239D1C82D19600D24708 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E46123A41C82D19600D24708;
+			remoteInfo = travelPlanner;
+		};
+		E46123C51C82D19700D24708 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E461239D1C82D19600D24708 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E46123A41C82D19600D24708;
+			remoteInfo = travelPlanner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E444FCB51C830C3A00D302BF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E444FCB91C83118300D302BF /* travelPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		E444FCBA1C83118400D302BF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E444FCBB1C83118400D302BF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E444FCBD1C8312C100D302BF /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		E444FCC01C8313AA00D302BF /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		E444FCC21C8313ED00D302BF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E444FCC41C83158400D302BF /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toolbox.swift; sourceTree = "<group>"; };
+		E444FCC71C83198000D302BF /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		E444FCC81C83198000D302BF /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		E444FCCA1C831B9F00D302BF /* Singleton_CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton_CurrentUser.swift; sourceTree = "<group>"; };
+		E444FCD01C832B3500D302BF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E453B25B1C83CD8E00B844E4 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		E453B25C1C83CD8E00B844E4 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		E453B25D1C83CD8E00B844E4 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		E453B25E1C83CD8E00B844E4 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		E453B25F1C83CD8E00B844E4 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		E453B2601C83CD8E00B844E4 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		E453B2641C83CEF600B844E4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E453B2661C83CF2C00B844E4 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		E453B2681C83DEAC00B844E4 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		E453B26A1C83E0B600B844E4 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		E453B26C1C83FD2100B844E4 /* ChangeUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserInfoViewController.swift; sourceTree = "<group>"; };
+		E453B26E1C83FD4300B844E4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		E453B2731C841FF300B844E4 /* MonthlyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyScheduleViewController.swift; sourceTree = "<group>"; };
+		E453B2771C8434F500B844E4 /* FilterScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E453B27A1C843C3000B844E4 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		E453B27B1C843C3000B844E4 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		E453B27C1C843C3000B844E4 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		E453B27D1C843C3000B844E4 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		E453B27E1C843C3000B844E4 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		E453B27F1C843C3000B844E4 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		E453B2801C843C3000B844E4 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		E453B2811C843C3000B844E4 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		E453B2821C843C3000B844E4 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		E453B2831C843C3000B844E4 /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		E453B2841C843C3000B844E4 /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		E453B2851C843C3000B844E4 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		E453B2861C843C3000B844E4 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		E453B2871C843C3000B844E4 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		E453B2881C843C3000B844E4 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		E453B2891C843C3000B844E4 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		E453B28A1C843C3000B844E4 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		E453B28B1C843C3000B844E4 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		E453B2941C843E7200B844E4 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		E453B2971C8446CC00B844E4 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		E453B2991C845A4A00B844E4 /* SearchScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchScheduleViewController.swift; sourceTree = "<group>"; };
+		E453B29B1C84632600B844E4 /* ScheduleResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleResultsTableViewController.swift; sourceTree = "<group>"; };
+		E453B29D1C846BA600B844E4 /* ScheduleDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailTableViewController.swift; sourceTree = "<group>"; };
+		E453B2A01C848D4100B844E4 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		E453B2A11C848D4100B844E4 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		E453B2A21C848D4100B844E4 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		E453B2A31C848D4100B844E4 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		E453B2A61C8495BD00B844E4 /* NewScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E46123A51C82D19600D24708 /* travelPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46123A81C82D19600D24708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E46123AD1C82D19600D24708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E46123AF1C82D19600D24708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E46123B21C82D19600D24708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E46123B41C82D19600D24708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E46123B91C82D19600D24708 /* travelPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46123BD1C82D19700D24708 /* travelPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelPlannerTests.swift; sourceTree = "<group>"; };
+		E46123BF1C82D19700D24708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E46123C41C82D19700D24708 /* travelPlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelPlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46123C81C82D19700D24708 /* travelPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelPlannerUITests.swift; sourceTree = "<group>"; };
+		E46123CA1C82D19700D24708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4869E961C8537E900A9E8F7 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
+		E4869E971C8537E900A9E8F7 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
+		E4869E981C8537E900A9E8F7 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
+		E4869E991C8537E900A9E8F7 /* JTCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarAppearance.m; sourceTree = "<group>"; };
+		E4869E9A1C8537E900A9E8F7 /* JTCalendarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarContentView.h; sourceTree = "<group>"; };
+		E4869E9B1C8537E900A9E8F7 /* JTCalendarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarContentView.m; sourceTree = "<group>"; };
+		E4869E9C1C8537E900A9E8F7 /* JTCalendarDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDataCache.h; sourceTree = "<group>"; };
+		E4869E9D1C8537E900A9E8F7 /* JTCalendarDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDataCache.m; sourceTree = "<group>"; };
+		E4869E9E1C8537E900A9E8F7 /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
+		E4869E9F1C8537E900A9E8F7 /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
+		E4869EA01C8537E900A9E8F7 /* JTCalendarMenuMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuMonthView.h; sourceTree = "<group>"; };
+		E4869EA11C8537E900A9E8F7 /* JTCalendarMenuMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuMonthView.m; sourceTree = "<group>"; };
+		E4869EA21C8537E900A9E8F7 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
+		E4869EA31C8537E900A9E8F7 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
+		E4869EA41C8537E900A9E8F7 /* JTCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthView.h; sourceTree = "<group>"; };
+		E4869EA51C8537E900A9E8F7 /* JTCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthView.m; sourceTree = "<group>"; };
+		E4869EA61C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
+		E4869EA71C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
+		E4869EA81C8537E900A9E8F7 /* JTCalendarViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarViewDataSource.h; sourceTree = "<group>"; };
+		E4869EA91C8537E900A9E8F7 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
+		E4869EAA1C8537E900A9E8F7 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
+		E4869EAB1C8537E900A9E8F7 /* JTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCircleView.h; sourceTree = "<group>"; };
+		E4869EAC1C8537E900A9E8F7 /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCircleView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E46123A21C82D19600D24708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123B61C82D19600D24708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123C11C82D19700D24708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E444FCB71C83115500D302BF /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				E4869E951C8537D500A9E8F7 /* JTCalendar */,
+				E453B29F1C848D2C00B844E4 /* MGSwipeTableCell */,
+				E453B2791C843C1F00B844E4 /* ActionSheetPicker */,
+				E453B25A1C83CD7800B844E4 /* RESideMenu */,
+				E444FCC61C83197400D302BF /* Keychain */,
+				E444FCB81C83116800D302BF /* MBProgressHUD */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		E444FCB81C83116800D302BF /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCBA1C83118400D302BF /* MBProgressHUD.h */,
+				E444FCBB1C83118400D302BF /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E444FCBF1C83138B00D302BF /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E453B2941C843E7200B844E4 /* NSDateExtension.swift */,
+				E444FCC01C8313AA00D302BF /* UITextViewExtension.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		E444FCC61C83197400D302BF /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCC71C83198000D302BF /* KeychainItemWrapper.h */,
+				E444FCC81C83198000D302BF /* KeychainItemWrapper.m */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		E444FCCC1C83298700D302BF /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E453B2661C83CF2C00B844E4 /* SideMenuViewController.swift */,
+				E453B2641C83CEF600B844E4 /* MainViewController.swift */,
+				E453B2701C84041E00B844E4 /* account */,
+				E453B2711C84042700B844E4 /* user */,
+				E453B2721C84043800B844E4 /* schedule */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		E444FCCD1C83299B00D302BF /* miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCBD1C8312C100D302BF /* Appearance.swift */,
+				E444FCC21C8313ED00D302BF /* Constants.swift */,
+				E444FCC41C83158400D302BF /* Toolbox.swift */,
+			);
+			name = miscellaneous;
+			sourceTree = "<group>";
+		};
+		E453B25A1C83CD7800B844E4 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E453B25B1C83CD8E00B844E4 /* RECommonFunctions.h */,
+				E453B25C1C83CD8E00B844E4 /* RECommonFunctions.m */,
+				E453B25D1C83CD8E00B844E4 /* RESideMenu.h */,
+				E453B25E1C83CD8E00B844E4 /* RESideMenu.m */,
+				E453B25F1C83CD8E00B844E4 /* UIViewController+RESideMenu.h */,
+				E453B2601C83CD8E00B844E4 /* UIViewController+RESideMenu.m */,
+			);
+			name = RESideMenu;
+			sourceTree = "<group>";
+		};
+		E453B2701C84041E00B844E4 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCB51C830C3A00D302BF /* LoginViewController.swift */,
+				E444FCD01C832B3500D302BF /* RegisterViewController.swift */,
+			);
+			name = account;
+			sourceTree = "<group>";
+		};
+		E453B2711C84042700B844E4 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				E453B2681C83DEAC00B844E4 /* UserInfoViewController.swift */,
+				E453B26C1C83FD2100B844E4 /* ChangeUserInfoViewController.swift */,
+				E453B26E1C83FD4300B844E4 /* ChangePasswordViewController.swift */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
+		E453B2721C84043800B844E4 /* schedule */ = {
+			isa = PBXGroup;
+			children = (
+				E453B26A1C83E0B600B844E4 /* ScheduleViewController.swift */,
+				E453B2731C841FF300B844E4 /* MonthlyScheduleViewController.swift */,
+				E453B2771C8434F500B844E4 /* FilterScheduleTableViewController.swift */,
+				E453B2991C845A4A00B844E4 /* SearchScheduleViewController.swift */,
+				E453B29B1C84632600B844E4 /* ScheduleResultsTableViewController.swift */,
+				E453B29D1C846BA600B844E4 /* ScheduleDetailTableViewController.swift */,
+				E453B2A61C8495BD00B844E4 /* NewScheduleTableViewController.swift */,
+			);
+			name = schedule;
+			sourceTree = "<group>";
+		};
+		E453B2791C843C1F00B844E4 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E453B27A1C843C3000B844E4 /* AbstractActionSheetPicker.h */,
+				E453B27B1C843C3000B844E4 /* AbstractActionSheetPicker.m */,
+				E453B27C1C843C3000B844E4 /* ActionSheetCustomPicker.h */,
+				E453B27D1C843C3000B844E4 /* ActionSheetCustomPicker.m */,
+				E453B27E1C843C3000B844E4 /* ActionSheetCustomPickerDelegate.h */,
+				E453B27F1C843C3000B844E4 /* ActionSheetDatePicker.h */,
+				E453B2801C843C3000B844E4 /* ActionSheetDatePicker.m */,
+				E453B2811C843C3000B844E4 /* ActionSheetDistancePicker.h */,
+				E453B2821C843C3000B844E4 /* ActionSheetDistancePicker.m */,
+				E453B2831C843C3000B844E4 /* ActionSheetLocalePicker.h */,
+				E453B2841C843C3000B844E4 /* ActionSheetLocalePicker.m */,
+				E453B2851C843C3000B844E4 /* ActionSheetPicker.h */,
+				E453B2861C843C3000B844E4 /* ActionSheetStringPicker.h */,
+				E453B2871C843C3000B844E4 /* ActionSheetStringPicker.m */,
+				E453B2881C843C3000B844E4 /* DistancePickerView.h */,
+				E453B2891C843C3000B844E4 /* DistancePickerView.m */,
+				E453B28A1C843C3000B844E4 /* SWActionSheet.h */,
+				E453B28B1C843C3000B844E4 /* SWActionSheet.m */,
+			);
+			name = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		E453B2961C84468A00B844E4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCCA1C831B9F00D302BF /* Singleton_CurrentUser.swift */,
+				E453B2971C8446CC00B844E4 /* Schedule.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		E453B29F1C848D2C00B844E4 /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				E453B2A01C848D4100B844E4 /* MGSwipeButton.h */,
+				E453B2A11C848D4100B844E4 /* MGSwipeButton.m */,
+				E453B2A21C848D4100B844E4 /* MGSwipeTableCell.h */,
+				E453B2A31C848D4100B844E4 /* MGSwipeTableCell.m */,
+			);
+			name = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		E461239C1C82D19600D24708 = {
+			isa = PBXGroup;
+			children = (
+				E46123A71C82D19600D24708 /* travelPlanner */,
+				E46123BC1C82D19700D24708 /* travelPlannerTests */,
+				E46123C71C82D19700D24708 /* travelPlannerUITests */,
+				E46123A61C82D19600D24708 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E46123A61C82D19600D24708 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E46123A51C82D19600D24708 /* travelPlanner.app */,
+				E46123B91C82D19600D24708 /* travelPlannerTests.xctest */,
+				E46123C41C82D19700D24708 /* travelPlannerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E46123A71C82D19600D24708 /* travelPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				E444FCB91C83118300D302BF /* travelPlanner-Bridging-Header.h */,
+				E46123A81C82D19600D24708 /* AppDelegate.swift */,
+				E444FCB71C83115500D302BF /* libs */,
+				E453B2961C84468A00B844E4 /* models */,
+				E444FCCD1C83299B00D302BF /* miscellaneous */,
+				E444FCBF1C83138B00D302BF /* extensions */,
+				E444FCCC1C83298700D302BF /* view controllers */,
+				E46123AC1C82D19600D24708 /* Main.storyboard */,
+				E46123AF1C82D19600D24708 /* Assets.xcassets */,
+				E46123B11C82D19600D24708 /* LaunchScreen.storyboard */,
+				E46123B41C82D19600D24708 /* Info.plist */,
+			);
+			path = travelPlanner;
+			sourceTree = "<group>";
+		};
+		E46123BC1C82D19700D24708 /* travelPlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E46123BD1C82D19700D24708 /* travelPlannerTests.swift */,
+				E46123BF1C82D19700D24708 /* Info.plist */,
+			);
+			path = travelPlannerTests;
+			sourceTree = "<group>";
+		};
+		E46123C71C82D19700D24708 /* travelPlannerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E46123C81C82D19700D24708 /* travelPlannerUITests.swift */,
+				E46123CA1C82D19700D24708 /* Info.plist */,
+			);
+			path = travelPlannerUITests;
+			sourceTree = "<group>";
+		};
+		E4869E951C8537D500A9E8F7 /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				E4869E961C8537E900A9E8F7 /* JTCalendar.h */,
+				E4869E971C8537E900A9E8F7 /* JTCalendar.m */,
+				E4869E981C8537E900A9E8F7 /* JTCalendarAppearance.h */,
+				E4869E991C8537E900A9E8F7 /* JTCalendarAppearance.m */,
+				E4869E9A1C8537E900A9E8F7 /* JTCalendarContentView.h */,
+				E4869E9B1C8537E900A9E8F7 /* JTCalendarContentView.m */,
+				E4869E9C1C8537E900A9E8F7 /* JTCalendarDataCache.h */,
+				E4869E9D1C8537E900A9E8F7 /* JTCalendarDataCache.m */,
+				E4869E9E1C8537E900A9E8F7 /* JTCalendarDayView.h */,
+				E4869E9F1C8537E900A9E8F7 /* JTCalendarDayView.m */,
+				E4869EA01C8537E900A9E8F7 /* JTCalendarMenuMonthView.h */,
+				E4869EA11C8537E900A9E8F7 /* JTCalendarMenuMonthView.m */,
+				E4869EA21C8537E900A9E8F7 /* JTCalendarMenuView.h */,
+				E4869EA31C8537E900A9E8F7 /* JTCalendarMenuView.m */,
+				E4869EA41C8537E900A9E8F7 /* JTCalendarMonthView.h */,
+				E4869EA51C8537E900A9E8F7 /* JTCalendarMonthView.m */,
+				E4869EA61C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.h */,
+				E4869EA71C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.m */,
+				E4869EA81C8537E900A9E8F7 /* JTCalendarViewDataSource.h */,
+				E4869EA91C8537E900A9E8F7 /* JTCalendarWeekView.h */,
+				E4869EAA1C8537E900A9E8F7 /* JTCalendarWeekView.m */,
+				E4869EAB1C8537E900A9E8F7 /* JTCircleView.h */,
+				E4869EAC1C8537E900A9E8F7 /* JTCircleView.m */,
+			);
+			name = JTCalendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E46123A41C82D19600D24708 /* travelPlanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46123CD1C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlanner" */;
+			buildPhases = (
+				E46123A11C82D19600D24708 /* Sources */,
+				E46123A21C82D19600D24708 /* Frameworks */,
+				E46123A31C82D19600D24708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = travelPlanner;
+			productName = travelPlanner;
+			productReference = E46123A51C82D19600D24708 /* travelPlanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E46123B81C82D19600D24708 /* travelPlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46123D01C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlannerTests" */;
+			buildPhases = (
+				E46123B51C82D19600D24708 /* Sources */,
+				E46123B61C82D19600D24708 /* Frameworks */,
+				E46123B71C82D19600D24708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E46123BB1C82D19600D24708 /* PBXTargetDependency */,
+			);
+			name = travelPlannerTests;
+			productName = travelPlannerTests;
+			productReference = E46123B91C82D19600D24708 /* travelPlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E46123C31C82D19700D24708 /* travelPlannerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46123D31C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlannerUITests" */;
+			buildPhases = (
+				E46123C01C82D19700D24708 /* Sources */,
+				E46123C11C82D19700D24708 /* Frameworks */,
+				E46123C21C82D19700D24708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E46123C61C82D19700D24708 /* PBXTargetDependency */,
+			);
+			name = travelPlannerUITests;
+			productName = travelPlannerUITests;
+			productReference = E46123C41C82D19700D24708 /* travelPlannerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E461239D1C82D19600D24708 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = VisionTech;
+				TargetAttributes = {
+					E46123A41C82D19600D24708 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 67BCWN3K5D;
+					};
+					E46123B81C82D19600D24708 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E46123A41C82D19600D24708;
+					};
+					E46123C31C82D19700D24708 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E46123A41C82D19600D24708;
+					};
+				};
+			};
+			buildConfigurationList = E46123A01C82D19600D24708 /* Build configuration list for PBXProject "travelPlanner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E461239C1C82D19600D24708;
+			productRefGroup = E46123A61C82D19600D24708 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E46123A41C82D19600D24708 /* travelPlanner */,
+				E46123B81C82D19600D24708 /* travelPlannerTests */,
+				E46123C31C82D19700D24708 /* travelPlannerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E46123A31C82D19600D24708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46123B31C82D19600D24708 /* LaunchScreen.storyboard in Resources */,
+				E46123B01C82D19600D24708 /* Assets.xcassets in Resources */,
+				E46123AE1C82D19600D24708 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123B71C82D19600D24708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123C21C82D19700D24708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E46123A11C82D19600D24708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E444FCBE1C8312C100D302BF /* Appearance.swift in Sources */,
+				E4869EAD1C8537E900A9E8F7 /* JTCalendar.m in Sources */,
+				E453B2691C83DEAC00B844E4 /* UserInfoViewController.swift in Sources */,
+				E453B26B1C83E0B600B844E4 /* ScheduleViewController.swift in Sources */,
+				E4869EB71C8537E900A9E8F7 /* JTCircleView.m in Sources */,
+				E444FCD11C832B3500D302BF /* RegisterViewController.swift in Sources */,
+				E444FCB61C830C3A00D302BF /* LoginViewController.swift in Sources */,
+				E4869EB51C8537E900A9E8F7 /* JTCalendarMonthWeekDaysView.m in Sources */,
+				E453B2981C8446CC00B844E4 /* Schedule.swift in Sources */,
+				E453B26F1C83FD4300B844E4 /* ChangePasswordViewController.swift in Sources */,
+				E453B2951C843E7200B844E4 /* NSDateExtension.swift in Sources */,
+				E453B29C1C84632600B844E4 /* ScheduleResultsTableViewController.swift in Sources */,
+				E453B2911C843C3000B844E4 /* ActionSheetStringPicker.m in Sources */,
+				E453B2781C8434F500B844E4 /* FilterScheduleTableViewController.swift in Sources */,
+				E453B26D1C83FD2100B844E4 /* ChangeUserInfoViewController.swift in Sources */,
+				E444FCC11C8313AA00D302BF /* UITextViewExtension.swift in Sources */,
+				E453B2931C843C3000B844E4 /* SWActionSheet.m in Sources */,
+				E453B2621C83CD8E00B844E4 /* RESideMenu.m in Sources */,
+				E4869EAF1C8537E900A9E8F7 /* JTCalendarContentView.m in Sources */,
+				E444FCC31C8313ED00D302BF /* Constants.swift in Sources */,
+				E453B28C1C843C3000B844E4 /* AbstractActionSheetPicker.m in Sources */,
+				E46123A91C82D19600D24708 /* AppDelegate.swift in Sources */,
+				E453B28F1C843C3000B844E4 /* ActionSheetDistancePicker.m in Sources */,
+				E4869EB11C8537E900A9E8F7 /* JTCalendarDayView.m in Sources */,
+				E453B2651C83CEF600B844E4 /* MainViewController.swift in Sources */,
+				E453B2A71C8495BD00B844E4 /* NewScheduleTableViewController.swift in Sources */,
+				E453B2901C843C3000B844E4 /* ActionSheetLocalePicker.m in Sources */,
+				E453B28D1C843C3000B844E4 /* ActionSheetCustomPicker.m in Sources */,
+				E444FCBC1C83118400D302BF /* MBProgressHUD.m in Sources */,
+				E453B29E1C846BA600B844E4 /* ScheduleDetailTableViewController.swift in Sources */,
+				E453B2741C841FF300B844E4 /* MonthlyScheduleViewController.swift in Sources */,
+				E453B2A51C848D4100B844E4 /* MGSwipeTableCell.m in Sources */,
+				E444FCC51C83158400D302BF /* Toolbox.swift in Sources */,
+				E444FCCB1C831B9F00D302BF /* Singleton_CurrentUser.swift in Sources */,
+				E453B2A41C848D4100B844E4 /* MGSwipeButton.m in Sources */,
+				E4869EB01C8537E900A9E8F7 /* JTCalendarDataCache.m in Sources */,
+				E453B2611C83CD8E00B844E4 /* RECommonFunctions.m in Sources */,
+				E444FCC91C83198000D302BF /* KeychainItemWrapper.m in Sources */,
+				E4869EB21C8537E900A9E8F7 /* JTCalendarMenuMonthView.m in Sources */,
+				E4869EB61C8537E900A9E8F7 /* JTCalendarWeekView.m in Sources */,
+				E453B29A1C845A4A00B844E4 /* SearchScheduleViewController.swift in Sources */,
+				E453B28E1C843C3000B844E4 /* ActionSheetDatePicker.m in Sources */,
+				E4869EAE1C8537E900A9E8F7 /* JTCalendarAppearance.m in Sources */,
+				E453B2671C83CF2C00B844E4 /* SideMenuViewController.swift in Sources */,
+				E453B2631C83CD8E00B844E4 /* UIViewController+RESideMenu.m in Sources */,
+				E453B2921C843C3000B844E4 /* DistancePickerView.m in Sources */,
+				E4869EB41C8537E900A9E8F7 /* JTCalendarMonthView.m in Sources */,
+				E4869EB31C8537E900A9E8F7 /* JTCalendarMenuView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123B51C82D19600D24708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46123BE1C82D19700D24708 /* travelPlannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46123C01C82D19700D24708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46123C91C82D19700D24708 /* travelPlannerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E46123BB1C82D19600D24708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E46123A41C82D19600D24708 /* travelPlanner */;
+			targetProxy = E46123BA1C82D19600D24708 /* PBXContainerItemProxy */;
+		};
+		E46123C61C82D19700D24708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E46123A41C82D19600D24708 /* travelPlanner */;
+			targetProxy = E46123C51C82D19700D24708 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E46123AC1C82D19600D24708 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46123AD1C82D19600D24708 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E46123B11C82D19600D24708 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46123B21C82D19600D24708 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E46123CB1C82D19700D24708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E46123CC1C82D19700D24708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E46123CE1C82D19700D24708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = travelPlanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "travelPlanner/travelPlanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E46123CF1C82D19700D24708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = travelPlanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "travelPlanner/travelPlanner-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		E46123D11C82D19700D24708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = travelPlannerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelPlanner.app/travelPlanner";
+			};
+			name = Debug;
+		};
+		E46123D21C82D19700D24708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = travelPlannerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelPlanner.app/travelPlanner";
+			};
+			name = Release;
+		};
+		E46123D41C82D19700D24708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = travelPlannerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlannerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = travelPlanner;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E46123D51C82D19700D24708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = travelPlannerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vt.travelPlannerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = travelPlanner;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E46123A01C82D19600D24708 /* Build configuration list for PBXProject "travelPlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46123CB1C82D19700D24708 /* Debug */,
+				E46123CC1C82D19700D24708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E46123CD1C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46123CE1C82D19700D24708 /* Debug */,
+				E46123CF1C82D19700D24708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E46123D01C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46123D11C82D19700D24708 /* Debug */,
+				E46123D21C82D19700D24708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E46123D31C82D19700D24708 /* Build configuration list for PBXNativeTarget "travelPlannerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46123D41C82D19700D24708 /* Debug */,
+				E46123D51C82D19700D24708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E461239D1C82D19600D24708 /* Project object */;
+}

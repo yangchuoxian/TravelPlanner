@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div ng-controller="AdminBaseController" ng-cloak>
+        <div class="loading-div"
+             ng-class="{'admin-menu-shown-padding':isAdminMenuCollapsed===0,'admin-menu-hidden-padding':isAdminMenuCollapsed==1}">
+            <p id="loading" ng-if="data.isChangingState">
+                <span class="fa fa-circle color-custom-orange"></span>
+                <span class="fa fa-circle color-custom-orange"></span>
+                <span class="fa fa-circle color-custom-orange"></span>
+            </p>
+        </div>
+        <div class="admin-topbar" id="admin-topbar"><!-- admin topbar -->
+            <div class="admin-logo text-center">
+                <span>VISIONTECH</span>
+            </div>
+            <div class="admin-homepage-link pull-left text-center">
+                <a href="/"><span class="fa fa-home fa-lg" data-toggle="tooltip" data-placement="bottom" title="Homepage"></span></a>
+            </div>
+            <div class="admin-add-new-dropdown dropdown pull-left">
+                <a href="#" class="dropdown-toggle"><i class="fa fa-plus fa-lg"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/new_user"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;User</a></li>
+                    <li><a href="#/new_schedule"><i class="fa fa-calendar fa-lg"></i>&nbsp;&nbsp;Schedule</a></li>
+                </ul>
+            </div>
+            <div class="admin-user-avatar-dropdown dropdown pull-right">
+                <a href="#" class="dropdown-toggle">
+                    <span class="pull-left logged_username" ng-bind="data.currentUser.username"></span>
+                    <span class="pull-left">&nbsp;<i class="caret color-white"></i>&nbsp;</span>
+					<span class="pull-left">
+                    <img ng-src="{{data.currentUser.avatar}}" alt="Avatar" class="img-responsive">
+					</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#/user_profile/{{data.currentUser.id}}">Profile</a></li>
+                    <li><a href="/logout?id={{data.currentUser.id}}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end of admin topbar -->
+        <div class="admin-menu" ng-class="{'admin-menu-toggle':isAdminMenuCollapsed==1}"><!-- admin sidebar menu -->
+            <ul>
+                <a href="#/dashboard">
+                    <li ng-class="{'admin-item-selected':currentViewIndex==adminViewIndex.dashboard,'admin-item-not-selected':currentViewIndex!=adminViewIndex.dashboard}">
+                        <i class="fa fa-dashboard fa-lg"></i>
+                        <span class="admin-menu-item-title">&nbsp;&nbsp;Dashboard</span>
+						<span class="pull-right" ng-if="currentViewIndex==adminViewIndex.dashboard">
+							<i class="fa fa-caret-left fa-lg"></i>
+						</span>
+                    </li>
+                </a>
+                <a href="#/user_list">
+                    <li ng-class="{'admin-item-selected':currentViewIndex==adminViewIndex.user,'admin-item-not-selected':currentViewIndex!=adminViewIndex.user}">
+                        <i class="fa fa-user fa-lg"></i>
+                        <span class="admin-menu-item-title">&nbsp;&nbsp;User</span>
+						<span class="pull-right" ng-if="currentViewIndex==adminViewIndex.user">
+							<i class="fa fa-caret-left fa-lg"></i>
+						</span>
+                    </li>
+                </a>
+                <a href="#/schedule_list">
+                    <li ng-class="{'admin-item-selected':currentViewIndex==adminViewIndex.schedule,'admin-item-not-selected':currentViewIndex!=adminViewIndex.schedule}">
+                        <i class="fa fa-calendar fa-lg"></i>
+                        <span class="admin-menu-item-title">&nbsp;&nbsp;Schedule</span>
+                        <span class="pull-right" ng-if="currentViewIndex==adminViewIndex.schedule">
+                            <i class="fa fa-caret-left fa-lg"></i>
+                        </span>
+                    </li>
+                </a>
+                <a href="#">
+                    <li class="admin-toggle-menu-control" ng-click="toggleAdminMenu()">
+                        <i ng-class="{'fa fa-chevron-left fa-lg':isAdminMenuCollapsed==0,'fa fa-navicon fa-lg':isAdminMenuCollapsed==1}"></i>
+                        <span class="admin-menu-item-title">&nbsp;&nbsp;Hide menu</span>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <!-- end of admin sidebar menu -->
+        <div class="admin-content"
+             ng-class="{'admin-content-with-shown-admin-menu':isAdminMenuCollapsed==0,'admin-content-with-hidden-admin-menu':isAdminMenuCollapsed==1}">
+            <!-- admin content -->
+            <div ng-cloak>
+                <div ui-view></div>
+            </div>
+        </div>
+        <!-- end of admin content -->
+    </div>
+</div>
