@@ -1,0 +1,107 @@
+Toptal demo project - TravelPlanner
+
+======================================= Introduction =======================================
+This is the git repository for Toptal demo project - TravelPlanner, the sources for this package contains both backend source code and iOS native app source code.
+
+--------------------------------------- Backend ---------------------------------------
+- Nodejs folder contains the backend code and web app for administration.
+- when developing the backend and admin panel web app, the following techniques have been utilized:
+	* MongoDB 				- For data storage
+	* Sails.js 				- A node.js framework built on top of Express
+	* AngularJS 1.3 		- For building web app page
+	* Coffeescript
+- Dependent third party npm packages utilized:
+	* bcrypt 				- To generate secure hash password string and for user authentication
+	* gm 					- For uploaded image resizing
+	* bluebird 				- A Promise package to avoid javascript callback hell
+	* mkdirp 				- To generate folder for uploaded user avatar
+	* validator 			- For user input validation
+	* moment 				- For date manipulation
+
+--------------------------------------- iOS ---------------------------------------
+- iOS folder contains the iOS native app written in Swift with some third party libraries written in Objective-C.
+- Thrid party lib utilized:
+	* JTCalendar - Shows calendar view
+	* MGSwipeTableCell - Allows swipe table cell to delete related table data
+	* ActionSheetPicker - date picker
+	* RESideMenu - Menu with side sliding effect
+	* Keychain - Used to store user credentials for automatic user login
+	* MBProgressHUD - A better looking progress indicator
+
+======================================= Installation =======================================
+
+--------------------------------------- Server/Backend ---------------------------------------
+Assume you are using Ubuntu or MAC OSX as your server, to setup the backend, follow the steps below:
+1. Install mongodb.
+2. Install node.js and npm.
+3. Install Sails.js by type the following command in terminal:
+		sudo npm -g install sails
+4. Install forever:
+		sudo npm install -g forever
+5. Setup the project with following command:
+		git clone git@git.toptal.com:yeinerfernandez/project-chuoxian-yang.git
+		cd project-chuoxian-yang/nodejs
+		npm install
+6. Run mongodb and server project app.js:
+		mongod &
+		NODE_ENV=production forever start app.js
+	now backend server is ready to be accessed and some user and schedule seeding data have been added into database including an admin user with username 'admin' and password '123456' for test purposes.
+7. If everything is fine, we should be able to access admin login page in a modern browser with such url:
+		http://localhost:1337/admin_login
+	We can login with 'admin' and '123456' to access admin panel.
+
+--------------------------------------- iOS ---------------------------------------
+Open project-chuoxian-yang/iOS/travelPlanner.xcodeproject with Xcode, compile it and run it on a simulator, in order to run it on a real iphone, you may need a valid iOS provisioning profile.
+
+======================================= Instructions =======================================
+
+Two user roles have been implemented: admin and user. 
+Admin have authority to do CRUD to all database records including users and schedules.
+User can ONLY CRUD his/her own schedule records.
+
+--------------------------------------- Server/Backend ---------------------------------------
+- Admin can CRUD all database records by login to admin panel with such url:
+	http://localhost:1337/admin_login
+- If a user tries to login to admin panel, he/she will be prompted with an insufficient permission page to forbid any further instructions.
+- For security's sake, for all post requests sent from admin panel, a csrf token was provided to protect csrf attack.
+- There are two types of models in database records: users and schedules, each of which can be shown in a paginated list.
+- Each user model contains the following information:
+	* Username 				- A unique string for each user.
+	* Email 				- Email address.
+	* Password
+	* LoginToken 			- Each time user logs in, a random token will be generated for later use to check if mobile user is authorized when mobile user sends http request through REST API.
+	* role 					- User role id, user role should be either admin or user.
+	* name 					- The user real name, an optional field.
+	* phoneNumber 			- User phone number, optional.
+	* citizenID 			- User citizen ID, optional.
+	* avatar 				- User avatar image file path
+- Each schedule model contains the following information:
+	* cityOfDeparture 		- The departure city of the schedule/trip.
+	* cityOfArrival 		- The destination city of the schedule/trip.
+	* startDate 			- The start date of the schedule/trip.
+	* endDate 				- The end date of the schedule/trip.
+	* username 				- The user that this schedule/trip belongs to
+	* comment 				- Extra information.
+- As an admin, you can
+	* See all user records, sort or search user records.
+	* Create a new user.
+	* Delete single user or select multiple users to delete at the same time.
+	* Change user role for one user, or select multiple users to change their roles at once.
+	* Upload an image file to change any user's avatar.
+	* Update any user's any information including even password.
+- As an admin, you can also
+	* See all schedule/trip records, sort or search schedule records, or filter schedules within a given date range.
+	* Create a new schedule and assign it to any user.
+	* Delete single schedule or select multiple schedules to delete at the same time.
+	* Update any information of any schedule.
+
+--------------------------------------- iOS ---------------------------------------
+- When first time opening the app, user will be asked to login with an existing account.
+- After user logs in, the user id and loginToken generated from server will be saved locally in Keychain, so next time when user opens the app, as long as he/she did not logout yet, the system will automatically login the user.
+- If user does not have an account, he/she can register as a new user, a username, password and an email address will be needed for registration. He/she can also provide an image as user avatar during registration. NOTE: the password must be 6-20 characters long.
+- After login, there are 2 entries in the left side menu: User info and Schedule.
+- In User info view, user can change his/her own information including username, email, phone, name, citizenID, password, he/she can also tap the avatar to upload a differet avatar image. He/she can, of course, logout.
+- In Schedule view, user can check his/her own schedules in three ways: monthly, filter within a date range or search schedules. NOTE: when searching schedules with a keyword, any schedules with departure city, arrival city or username containing the keyword will be shown as search results.
+- At the upper right of the navigation bar of Schedule view, there's a '+' button that lets user create his/her own new schedule. Departure city, arrival city, start date and end date need to be provided for new schedule, comment is optional.
+- If there are any schedules matching certain criteria, being them in a given month, within a filtering date range or satisfy specific search criteria, the schedule results will be shown in a table view, if the schedule is in the further, day count will be shown in red text.
+- Tapping any of the schedule result table entries allows you to see the related schedule details and to update the schedule information if you want.
