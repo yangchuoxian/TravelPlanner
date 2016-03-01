@@ -1,5 +1,12 @@
 Toptal demo project - TravelPlanner
 
+======================================= FIRST OF ALL =======================================
+The demo project backend has already been setup in one of my VPS, you can access:
+	http://45.63.49.21:1337/admin_login
+and login with a testing admin account: 
+	username: admin
+	password: 123456
+
 ======================================= Introduction =======================================
 This is the git repository for Toptal demo project - TravelPlanner, the sources for this package contains both backend source code and iOS native app source code.
 

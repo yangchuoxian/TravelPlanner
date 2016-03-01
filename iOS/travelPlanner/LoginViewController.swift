@@ -93,6 +93,8 @@ class LoginViewController: UIViewController, NSURLConnectionDelegate, NSURLConne
         if connection == nil {
             // inform the user that the connection failed
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "Network connection failed")
+        } else {
+            self.HUD = Toolbox.setupCustomProcessingViewWithTitle(title: nil)
         }
     }
     
