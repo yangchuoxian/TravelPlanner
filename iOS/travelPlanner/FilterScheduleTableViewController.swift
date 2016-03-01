@@ -55,7 +55,7 @@ class FilterScheduleTableViewController: UITableViewController, NSURLConnectionD
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 70))
 
         if section == 0 {   // add button to the footer of table section
-            self.button_filter = Appearance.setupTableFooterButtonWithTitle("Filter", backgroundColor: ColorSettledGreen)
+            self.button_filter = Appearance.setupTableFooterButtonWithTitle("Filter", backgroundColor: ColorPrimaryBlue)
             self.button_filter?.addTarget(self, action: "filterSchedule", forControlEvents: .TouchUpInside)
             footerView.addSubview(self.button_filter!)
             

@@ -48,7 +48,7 @@ class ScheduleDetailTableViewController: UITableViewController, UITextViewDelega
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 70))
         
-        self.button_changeSchedule = Appearance.setupTableFooterButtonWithTitle("Update", backgroundColor: ColorSettledGreen)
+        self.button_changeSchedule = Appearance.setupTableFooterButtonWithTitle("Update", backgroundColor: ColorPrimaryBlue)
         self.button_changeSchedule?.addTarget(self, action: "updateSchedule", forControlEvents: .TouchUpInside)
         footerView.addSubview(self.button_changeSchedule!)
         

@@ -9,7 +9,7 @@
 import UIKit
 
 let ColorBackgroundGray = UIColor(red: 244/255.0, green: 245/255.0, blue: 249/255.0, alpha: 1.0)
-let ColorSettledGreen = UIColor(red: 101/255.0, green: 192/255.0, blue: 89/255.0, alpha: 1.0)
+let ColorPrimaryBlue = UIColor(red: 83/255.0, green: 153/255.0, blue: 213/255.0, alpha: 1.0)
 
 @objc class Appearance: NSObject {
     

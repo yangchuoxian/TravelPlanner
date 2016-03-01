@@ -33,7 +33,7 @@ class NewScheduleTableViewController: UITableViewController, UITextViewDelegate,
         self.textView_comment.delegate = self
         // set up the create button for table footer
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 70))
-        self.button_createNewSchedule = Appearance.setupTableFooterButtonWithTitle("Create", backgroundColor: ColorSettledGreen)
+        self.button_createNewSchedule = Appearance.setupTableFooterButtonWithTitle("Create", backgroundColor: ColorPrimaryBlue)
         self.button_createNewSchedule?.addTarget(self, action: "submitNewSchedule", forControlEvents: .TouchUpInside)
         footerView.addSubview(self.button_createNewSchedule!)
         
