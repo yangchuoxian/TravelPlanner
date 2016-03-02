@@ -92,7 +92,7 @@ class SearchScheduleViewController: UIViewController, UITextFieldDelegate, NSURL
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "Search failed")
             return
         }
-        self.totalSearchResults = responseDictionary!["total"]?.integerValue
+        self.totalSearchResults = responseDictionary!["paginationInfo"]!["total"] as? Int
         let models = responseDictionary!["models"] as? [[String: String]]
         if self.totalSearchResults == 0 || models == nil {
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "No search result")
@@ -109,6 +109,9 @@ class SearchScheduleViewController: UIViewController, UITextFieldDelegate, NSURL
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "searchResultsSegue" {
             let destinationViewController = segue.destinationViewController as! ScheduleResultsTableViewController
+            destinationViewController.scheduleResultType = .SearchResult
+            destinationViewController.totalResults = self.totalSearchResults
+            destinationViewController.searchKeyword = Toolbox.trim(self.input_search.text!)
             destinationViewController.schedules = self.searchScheduleResults!
         }
     }

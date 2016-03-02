@@ -117,6 +117,18 @@ module.exports =
                 startDate: startMoment.toDate()
                 endDate: endMoment.toDate()
                 comment: 'Test schedule for ' + i
+        for i in [21...80]
+            startMoment = moment()
+            endMoment = moment()
+            startMoment.subtract(i, 'days')
+            endMoment.add(i, 'days')
+            seeds.push
+                cityOfDeparture: 'city' + i
+                cityOfArrival: 'city' + (i + 1)
+                username: 'ycx1'
+                startDate: startMoment.toDate()
+                endDate: endMoment.toDate()
+                comment: 'Test schedule for ' + i
         seeds
 
     getPaginationInfo: (total, currentPage) ->

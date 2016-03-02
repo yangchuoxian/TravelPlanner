@@ -119,21 +119,31 @@ module.exports =
     ###
     filterSchedules: (req, res) ->
         userId = req.param 'currentUserId'
+        currentPage = req.param 'page'
         startTime = req.param 'startTime'
         endTime = req.param 'endTime'
+        paginationCondition =
+            page: currentPage
+            limit: sails.config.constants.itemsPerPage
         User.findOne id: userId
         .then (foundUser) ->
             return Promise.reject sails.__ 'User not found' if not foundUser
-            Schedule.find
+            countCriteria =
                 username: foundUser.username
                 startDate:
                     '>': new Date startTime
                     '<': new Date endTime
-                sort: 'startDate asc'
-        .then (foundSchedules) ->
-            res.json
-                'total': foundSchedules.length
-                'models': foundSchedules
+            findCriteria = countCriteria
+            findCriteria.sort = 'startDate asc'
+            Promise.resolve [
+                Schedule.count countCriteria
+                Schedule.find findCriteria
+                .paginate paginationCondition
+            ]
+        .spread (total, paginatedSchedules) ->
+            res.send 200,
+                paginationInfo: Toolbox.getPaginationInfo total, currentPage
+                models: paginatedSchedules
         .catch (err) -> res.send 400, err
 
     ###
@@ -142,21 +152,31 @@ module.exports =
     searchSchedules: (req, res) ->
         keyword = req.param 'keyword'
         userId = req.param 'currentUserId'
+        currentPage = req.param 'page'
+        paginationCondition =
+            page: currentPage
+            limit: sails.config.constants.itemsPerPage
         User.findOne id: userId
         .then (foundUser) ->
             return Promise.reject sails.__ 'User not found' if not foundUser
-            Schedule.find
+            countCriteria =
                 username: foundUser.username
                 OR: [
                     {comment: {'contains': keyword}}
                     {cityOfDeparture: {'contains': keyword}}
                     {cityOfArrival: {'contains': keyword}}
                 ]
-                sort: 'startDate asc'
-        .then (foundSchedules) ->
-            res.json
-                'total': foundSchedules.length
-                'models': foundSchedules
+            findCriteria = countCriteria
+            findCriteria.sort = 'startDate asc'
+            Promise.resolve [
+                Schedule.count countCriteria
+                Schedule.find findCriteria
+                .paginate paginationCondition
+            ]
+        .spread (total, paginatedSchedules) ->
+            res.send 200,
+                paginationInfo: Toolbox.getPaginationInfo total, currentPage
+                models: paginatedSchedules
         .catch (err) -> res.send 400, err
 
 

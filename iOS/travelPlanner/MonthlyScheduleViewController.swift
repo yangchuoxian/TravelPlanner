@@ -103,6 +103,7 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
                 }
             }
             let destinationViewController = segue.destinationViewController as! ScheduleResultsTableViewController
+            destinationViewController.totalResults = schedulesOnSelectedDate.count
             destinationViewController.schedules = schedulesOnSelectedDate
         }
     }

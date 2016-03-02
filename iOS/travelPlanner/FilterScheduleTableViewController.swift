@@ -116,7 +116,7 @@ class FilterScheduleTableViewController: UITableViewController, NSURLConnectionD
     }
     
     func filterSchedule() {
-        let getUrl = "\(URLFilterSchedules)?startTime=\(self.label_fromDate.text!)&endTime=\(self.label_toDate.text!)"
+        let getUrl = "\(URLFilterSchedules)?startTime=\(self.label_fromDate.text!)&endTime=\(self.label_toDate.text!)&page=1"
         var connection = Toolbox.asyncHttpGetFromURL(getUrl, delegate: self)
         if connection == nil {
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "Network connection failed")
@@ -150,7 +150,7 @@ class FilterScheduleTableViewController: UITableViewController, NSURLConnectionD
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "Filter failed")
             return
         }
-        self.totalFilterResults = responseDictionary!["total"]?.integerValue
+        self.totalFilterResults = responseDictionary!["paginationInfo"]!["total"] as? Int
         let models = responseDictionary!["models"] as? [[String: String]]
         if self.totalFilterResults == 0 || models == nil {
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "No filter result")
@@ -167,6 +167,10 @@ class FilterScheduleTableViewController: UITableViewController, NSURLConnectionD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "filterResultsSegue" {
             let destinationViewController = segue.destinationViewController as! ScheduleResultsTableViewController
+            destinationViewController.scheduleResultType = .FilterResult
+            destinationViewController.totalResults = self.totalFilterResults
+            destinationViewController.dateRangeStart = self.label_fromDate.text!
+            destinationViewController.dateRangeEnd = self.label_toDate.text!
             destinationViewController.schedules = self.filterScheduleResults!
         }
     }

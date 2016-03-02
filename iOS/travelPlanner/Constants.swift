@@ -6,6 +6,12 @@
 //  Copyright © 2016年 VisionTech. All rights reserved.
 //
 
+enum ScheduleResultType {
+    case FilterResult
+    case SearchResult
+    case ScheduleForSpecificDate
+}
+
 enum TagValue: Int {
     case TextFieldUsername = 1
     case TextFieldPassword = 2
