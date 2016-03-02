@@ -37,11 +37,11 @@
                 <form action="/submit_new_user" method="post" class="form-horizontal" ng-submit="submitNewUser($event)">
                     <!-- USER AVATAR -->
                     <div class="form-group">
-                        <label class="col-sm-1 control-label">Avatar</label>
-                        <div class="col-sm-2">
+                        <label class="col-sm-2 control-label">Avatar</label>
+                        <div class="col-sm-3">
                             <img ng-src="{{data.user.avatar}}" class="img-responsive avatar-image pull-left">
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div ng-file-drop ng-if="!data.isUploading" ng-model="data.chosenImageFile"
                                  class="avatar-dropzone pull-left" drag-over-class="upload-dropzone"
                                  ng-file-change="avatarUpload.fileSelected('/upload_user_avatar', data.user, data)"
@@ -52,20 +52,20 @@
                     </div>
                     <!-- END OF USER AVATAR -->
                     <div class="row" ng-show="data.isUploading"><!-- user avatar uploading progressbar -->
-                        <div class="col-sm-2 col-sm-offset-1">
+                        <div class="col-sm-3 col-sm-offset-2">
                             <progressbar class="image-upload-progress active" type="success"
                                          value="data.uploadPercentage"></progressbar>
                         </div>
                     </div>
                     <!-- end of user avatar uploading progressbar -->
                     <div class="row">
-                        <div class="col-sm-4 col-sm-offset-1">
+                        <div class="col-sm-6 col-sm-offset-2">
                             <div class="alert alert-danger" role="alert" ng-bind="data.uploadErrorMessage"
                                  ng-if="data.uploadErrorMessage"></div>
                         </div>
                     </div>
                     <div class="form-group"><!-- avatar action button -->
-                        <div class="col-sm-4 col-sm-offset-1">
+                        <div class="col-sm-6 col-sm-offset-2">
                             <div class="btn btn-warning btn-block" ng-if="!data.isUploading" ng-file-select
                                  ng-model="data.chosenImageFile"
                                  ng-file-change="avatarUpload.fileSelected('/upload_user_avatar', data.user, data)"
@@ -75,7 +75,7 @@
                     </div>
                     <!-- end of avatar action button -->
                     <div class="form-group"><!-- username -->
-                        <label for="username" class="col-sm-1 control-label">Username&nbsp;&nbsp;</label>
+                        <label for="username" class="col-sm-2 control-label">Username&nbsp;&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="username" id="username"
                                    ng-model="data.user.username" maxlength="80" required placeholder="Username">
@@ -86,7 +86,7 @@
                     </div>
                     <!-- end of username -->
                     <div class="form-group"><!-- user role -->
-                        <label for="role" class="col-sm-1 control-label">Role&nbsp;&nbsp;</label>
+                        <label for="role" class="col-sm-2 control-label">Role&nbsp;&nbsp;</label>
                         <div class="col-sm-6">
                             <select name="role" id="role" class="form-control" ng-model="data.user.role" ng-options="role.name for role in data.roles track by role.id" required>
                                 <option value="">Select user role</option>
@@ -98,7 +98,7 @@
                     </div>
                     <!-- end of user role -->
                     <div class="form-group"><!-- email -->
-                        <label for="email" class="col-sm-1 control-label">Email&nbsp;&nbsp;</label>
+                        <label for="email" class="col-sm-2 control-label">Email&nbsp;&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="email" class="form-control" name="email" id="email" placeholder="Email address" maxlength="50" ng-model="data.user.email" required>
                         </div>
@@ -108,7 +108,7 @@
                     </div>
                     <!-- end of email -->
                     <div class="form-group"><!-- password -->
-                        <label for="password" class="col-sm-1 control-label">Password&nbsp;&nbsp;</label>
+                        <label for="password" class="col-sm-2 control-label">Password&nbsp;&nbsp;</label>
 
                         <div class="col-sm-6">
                             <input type="password" class="form-control" name="password" id="password" placeholder="password" minlength="6" maxlength="20" ng-model="data.password">
@@ -119,7 +119,7 @@
                     </div>
                     <!-- end of password -->
                     <div class="row"><!-- password strength hint blocks -->
-                        <div class="col-sm-7 col-sm-offset-1">
+                        <div class="col-sm-7 col-sm-offset-2">
                             <span class="col-sm-3 label password-strength"
                                   ng-class="{'password-strength-1-active': data.password.length>0&&data.password.length<=7}">Weak</span>
                             <span class="col-sm-3 label password-strength"
@@ -130,7 +130,7 @@
                     </div>
                     <!-- end of password strength hint blocks -->
                     <div class="form-group"><!-- password confirmation -->
-                        <label for="confirm-password" class="col-sm-1 control-label">Confirm password&nbsp;&nbsp;</label>
+                        <label for="confirm-password" class="col-sm-2 control-label">Confirm password&nbsp;&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Enter password again" minlength="6" maxlength="20" ng-model="data.confirmPassword">
                         </div>
@@ -141,21 +141,21 @@
                     </div>
                     <!-- end of password confirmation -->
                     <div class="form-group"><!-- user real name -->
-                        <label for="name" class="col-sm-1 control-label">Name</label>
+                        <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="name" id="name" placeholder="Name" maxlength="20" ng-model="data.user.name">
                         </div>
                     </div>
                     <!-- end of user real name -->
                     <div class="form-group"><!-- user phone number -->
-                        <label for="phone-number" class="col-sm-1 control-label">Phone</label>
+                        <label for="phone-number" class="col-sm-2 control-label">Phone</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="phone" id="phone-number" placeholder="Phone number" maxlength="20" ng-model="data.user.phoneNumber">
                         </div>
                     </div>
                     <!-- end of user phone number -->
                     <div class="form-group">
-                        <label for="location" class="col-sm-1 control-label">Citizen ID</label>
+                        <label for="location" class="col-sm-2 control-label">Citizen ID</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="citizenid" id="citizen-id" placeholder="Citizen ID" maxlength="20" ng-model="data.user.citizenID">
                         </div>
