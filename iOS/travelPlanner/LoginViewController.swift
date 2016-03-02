@@ -34,6 +34,11 @@ class LoginViewController: UIViewController, NSURLConnectionDelegate, NSURLConne
         self.input_password.delegate = self
         self.input_username.addTarget(self, action: "validateUserInput", forControlEvents: .EditingChanged)
         self.input_password.addTarget(self, action: "validateUserInput", forControlEvents: .EditingChanged)
+        
+        let lastLoginUserId = NSUserDefaults.standardUserDefaults().stringForKey("lastLoginUserId")
+        if Toolbox.isStringValueValid(lastLoginUserId) {
+            Toolbox.loadAvatarImage(lastLoginUserId!, toImageView: self.imageView_appIconOrLastLoginUserAvatar)
+        }
     }
 
     override func didReceiveMemoryWarning() {
