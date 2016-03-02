@@ -18,7 +18,7 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
     var HUD: MBProgressHUD?
     var responseData: NSMutableData? = NSMutableData()
     var schedules: [Schedule]? = [Schedule]()
-    var scheduleDate = [String]()
+    var scheduleDates = [String]()
     var startDateRangeOfCurrentBatch: NSDate?
     var endDateRangeOfCurrentBatch: NSDate?
     
@@ -36,12 +36,14 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
             self.schedules?.removeAll()
             self.schedules = nil
         }
-        self.scheduleDate.removeAll()
+        self.scheduleDates.removeAll()
+        self.startDateRangeOfCurrentBatch = nil
+        self.endDateRangeOfCurrentBatch = nil
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // set up and show JTCalendar
         self.calendar = JTCalendar()
         self.calendar.calendarAppearance.ratioContentMenu = 0.5
@@ -59,13 +61,34 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
         
         // listen to notification of new schedule creation
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showCreatedSchedule:", name: "scheduleCreated", object: nil)
+        // listen to notification of updated schedule
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showUpdatedSchedule:", name: "scheduleUpdated", object: nil)
     }
     
     func showCreatedSchedule(notification: NSNotification) {
         let createdSchedule = notification.object as! Schedule
         self.schedules?.append(createdSchedule)
-        self.scheduleDate.append(createdSchedule.startDate)
+        self.scheduleDates.append(createdSchedule.startDate)
         self.calendar.reloadData()
+    }
+    
+    func showUpdatedSchedule(notification: NSNotification) {
+        let updatedSchedule = notification.object as! Schedule
+        let possibleCandidates = self.schedules?.filter{
+            $0.scheduleId == updatedSchedule.scheduleId
+        }
+        if possibleCandidates?.count > 0 {
+            let relatedScheduleInList = possibleCandidates?[0]
+            let index = self.schedules?.indexOf(relatedScheduleInList!)
+            self.schedules?[index!] = updatedSchedule
+            
+            // update the scheduleDates
+            self.scheduleDates.removeAll()
+            for scheduleObject in self.schedules! {
+                self.scheduleDates.append(scheduleObject.startDate)
+            }
+            self.calendar.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +97,7 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
     
     func calendarHaveEvent(calendar: JTCalendar!, date: NSDate!) -> Bool {
         let dateString = date.getDateString()
-        if self.scheduleDate.contains(dateString) {
+        if self.scheduleDates.contains(dateString) {
             // there is at least one schedule on this date
             return true
         }
@@ -84,7 +107,7 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
     
     func calendarDidDateSelected(calendar: JTCalendar!, date: NSDate!) {
         self.selectedDate = date
-        if self.scheduleDate.contains(self.selectedDate!.getDateString()) {
+        if self.scheduleDates.contains(self.selectedDate!.getDateString()) {
             self.performSegueWithIdentifier("scheduleResultsSegue", sender: self)
         } else {
             Toolbox.showCustomAlertViewWithImage("unhappy", title: "No schedule on this date")
@@ -174,13 +197,13 @@ class MonthlyScheduleViewController: UIViewController, JTCalendarDataSource, NSU
         }
         let models = responseDictionary!["models"] as? [[String: String]]
         
-        self.scheduleDate.removeAll()
+        self.scheduleDates.removeAll()
         self.schedules?.removeAll()
         
         for scheduleModel in models! {
             let scheduleObject = Schedule(data: scheduleModel)
             self.schedules?.append(scheduleObject)
-            self.scheduleDate.append(scheduleObject.startDate)
+            self.scheduleDates.append(scheduleObject.startDate)
         }
         self.calendar.reloadData()
     }

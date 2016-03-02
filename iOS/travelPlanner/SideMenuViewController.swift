@@ -73,7 +73,6 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             switch indexPath.row {
             case 1:
                 let userInfoNavigationController = storyboard.instantiateViewControllerWithIdentifier("userInfoNavigationController") as! UINavigationController
-                userInfoNavigationController.setViewControllers([storyboard.instantiateViewControllerWithIdentifier("userInfoTableViewController")], animated: true)
                 self.sideMenuViewController.setContentViewController(userInfoNavigationController, animated: true)
                 
                 self.icon_userInfo?.tintColor = UIColor.lightGrayColor()
@@ -81,7 +80,6 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 break
             case 2:
                 let scheduleNavigationController = storyboard.instantiateViewControllerWithIdentifier("scheduleNavigationController") as! UINavigationController
-                scheduleNavigationController.setViewControllers([storyboard.instantiateViewControllerWithIdentifier("scheduleViewController")], animated: true)
                 self.sideMenuViewController.setContentViewController(scheduleNavigationController, animated: true)
                 
                 self.icon_userInfo?.tintColor = UIColor.whiteColor()
