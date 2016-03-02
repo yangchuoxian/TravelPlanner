@@ -135,15 +135,20 @@ module.exports =
                     '<': new Date endTime
             findCriteria = countCriteria
             findCriteria.sort = 'startDate asc'
-            Promise.resolve [
-                Schedule.count countCriteria
+            if currentPage      # Get paginated results
+                Promise.resolve [
+                    Schedule.count countCriteria
+                    Schedule.find findCriteria
+                    .paginate paginationCondition
+                ]
+                .spread (total, paginatedSchedules) ->
+                    res.send 200,
+                        paginationInfo: Toolbox.getPaginationInfo total, currentPage
+                        models: paginatedSchedules
+            else                # Get all results
                 Schedule.find findCriteria
-                .paginate paginationCondition
-            ]
-        .spread (total, paginatedSchedules) ->
-            res.send 200,
-                paginationInfo: Toolbox.getPaginationInfo total, currentPage
-                models: paginatedSchedules
+                .then (foundSchedules) ->
+                    res.json models: foundSchedules
         .catch (err) -> res.send 400, err
 
     ###
