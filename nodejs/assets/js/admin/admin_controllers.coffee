@@ -135,6 +135,7 @@ app.controller 'NewUserController', ['$scope', '$http', '$window', '$upload', 'a
                 'citizenID': $scope.data.user.citizenID
                 'isSubmittedByAdmin': true
                 '_csrf': csrfToken
+                'id': $scope.data.user.id
             .success (response, status, headers, config) ->
                 $scope.data.user = avatar: '/images/default-avatar.jpg'
                 $scope.data.password = $scope.data.confirmPassword = null

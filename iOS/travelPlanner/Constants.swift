@@ -41,8 +41,9 @@ enum TimeIntervals: NSTimeInterval {
 
 let ScreenSize = UIScreen.mainScreen().bounds.size
 
-//let BaseUrl = "http://localhost:1337"
-let BaseUrl = "http://45.63.49.21:1337"
+//let BaseUrl = "http://localhost:1337"                 // Local address for local device simulator
+let BaseUrl = "http://192.168.0.102:1337"             // Local Area Address for real iPhone device
+//let BaseUrl = "http://45.63.49.21:1337"               // Remote server address
 let URLSubmitLogin = BaseUrl + "/mobile/submit_login"
 let URLUpdateUser = BaseUrl + "/mobile/update_user"
 let URLChangeUserPassword = BaseUrl + "/mobile/change_user_password"

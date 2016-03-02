@@ -12,35 +12,9 @@ module.exports =
         email = req.param 'email'
         userId = req.param 'id'
         userRoleId = ''
+        newUserJSON = {}
         bcrypt = Promise.promisifyAll require 'bcrypt'
         loginToken = Toolbox.generateLoginToken()
-        createOrUpdateNewUser = ->
-            Role.findOne name: 'user'
-            .then (foundRole) ->
-                return Promise.reject sails.__ 'User role not found' if not foundRole
-                userRoleId = foundRole.id
-                bcrypt.genSaltAsync 10
-            .then (salt) -> bcrypt.hashAsync password, salt
-            .then (hash) ->
-                newUserJSON =
-                    username: username
-                    email: email
-                    password: hash
-                    role: userRoleId
-                    loginToken: loginToken
-                if userId   # database record is already created since user avatar uploaded first, now just update the existing record value
-                    User.update {id: userId}, newUserJSON
-                    .then (updatedUsers) ->
-                        return Promise.reject sails.__ 'User not found' if not updatedUsers
-                        updatedUsers[0]
-                    .catch (err) -> Promise.reject err
-                else
-                    User.create newUserJSON
-                    .then (createdUser) ->
-                        return Promise.reject sails.__ 'Server error' if not createdUser
-                        createdUser
-                    .catch (err) -> Promise.reject err
-            .catch (err) -> Promise.reject err
         ### start user input validation ###
         validator = require 'validator'
         return res.send(400, sails.__ 'Please enter username') if not username
@@ -55,7 +29,27 @@ module.exports =
         .then (foundUserWithEmail) ->       # check if email is unique
             return Promise.reject sails.__ 'User with that email already exists' if foundUserWithEmail
             ### end of user input validation ###
-            createOrUpdateNewUser()
+            Role.findOne name: 'user'
+        .then (foundRole) ->
+            return Promise.reject sails.__ 'User role not found' if not foundRole
+            userRoleId = foundRole.id
+            bcrypt.genSaltAsync 10
+        .then (salt) -> bcrypt.hashAsync password, salt
+        .then (hash) ->
+            newUserJSON =
+                username: username
+                email: email
+                password: hash
+                role: userRoleId
+                loginToken: loginToken
+        .then -> TempUser.findOne tempId: userId
+        .then (foundTempUser) ->
+            # Already created a temp user since new user avatar uploaded first
+            if foundTempUser
+                newUserJSON.avatar = foundTempUser.avatarUrl
+                # Remove the temp user since we are to create the official new user
+                TempUser.destroy().where tempId: userId
+        .then -> User.create newUserJSON
         .then (newUserObject) -> res.json newUserObject
         .catch (err) -> res.send 400, err
 
@@ -229,57 +223,58 @@ module.exports =
     uploadUserAvatar: (req, res) ->
         userId = req.param 'modelId'
         userId = userId.trim() if userId
+        file = null
         mkdirp = Promise.promisify require 'mkdirp'
         uploadFolder = sails.config.constants.uploadFolderPath + '/' + Toolbox.getDateString(new Date()) + '/'
         uploadedFileUrl = ''
         mkdirp uploadFolder
         .then -> Toolbox.uploadFile req, uploadFolder, 'avatar'
         .then (files) ->
+            file = files[0]
             uploadedFileUrl = files[0].fd.substring sails.config.constants.uploadFolderPath.length
             Toolbox.resizeImage files[0].fd, sails.config.constants.avatarImageSize, files[0].fd
-            .then ->
-                # If the image file does NOT have an extension, add a .jpg as its extension
-                path = require 'path'
-                fs = require 'fs'
-                fs.rename = Promise.promisify fs.rename
-                if not path.extname files[0].fd
-                    uploadedFileUrl = uploadedFileUrl + '.jpg'
-                    fs.rename files[0].fd, files[0].fd + '.jpg'
-            .then ->
-                # Upload avatar for an existing user
-                if userId
-                    User.update id: userId,
-                        avatar: uploadedFileUrl
-                else    # Upload avatar for a new user
-                    Role.findOne name: 'user'
-                    .then (foundRole) ->
-                        return Promise.reject sails.__ 'Role not found' if not foundRole
-                        User.create
-                            # Dummy user data, only avatar and role id is real
-                            email: uploadedFileUrl + '@email.com',
-                            username: uploadedFileUrl
-                            password: '123456'
-                            role: foundRole.id
-                            avatar: uploadedFileUrl
-                        .then (createdUser) ->
-                            return Promise.reject sails.__ 'Server error' if not createdUser
-                            # After new user is created, the user has an id now
-                            userId = createdUser.id
-                        .catch (err) -> Promise.reject err
-            .then ->
-                res.json
-                    avatarUrl: sails.config.constants.userAvatarBaseUrl + userId
-                    modelId: userId
-            .catch (err) -> res.send 400, err
+        .then ->
+            # If the image file does NOT have an extension, add a .jpg as its extension
+            path = require 'path'
+            fs = require 'fs'
+            fs.rename = Promise.promisify fs.rename
+            if not path.extname file.fd
+                uploadedFileUrl = uploadedFileUrl + '.jpg'
+                fs.rename file.fd, file.fd + '.jpg'
+        .then ->
+            # Upload avatar for an existing user
+            if userId
+                User.update id: userId,
+                    avatar: uploadedFileUrl
+                .then (updatedUsers) ->
+                    if not updatedUsers or updatedUsers.length is 0
+                        TempUser.update tempId: userId,
+                            avatarUrl: uploadedFileUrl
+            else    # Generate a temp user id for this new user and save it together with the avatar url in session
+                userId = Toolbox.generateLoginToken()
+                TempUser.create
+                    tempId: userId
+                    avatarUrl: uploadedFileUrl
+        .then ->
+            res.json
+                avatarUrl: sails.config.constants.userAvatarBaseUrl + userId
+                modelId: userId
+        .catch (err) -> res.send 400, err
 
     getUserAvatar: (req, res) ->
         userId = req.param 'id'
         userId = req.session.userId if not userId
         User.findOne id: userId
         .then (foundUser) ->
-            return Promise.reject sails.__('User not found') if not foundUser
-            if foundUser.avatar then res.sendfile sails.config.constants.uploadFolderPath + foundUser.avatar
-            else res.sendfile sails.config.constants.defaultAvatarUrl
+            if foundUser
+                if foundUser.avatar then res.sendfile sails.config.constants.uploadFolderPath + foundUser.avatar
+                else res.sendfile sails.config.constants.defaultAvatarUrl
+            else
+                TempUser.findOne tempId: userId
+                .then (foundTempUser) ->
+                    return Promise.reject sails.__ 'User not found' if not foundTempUser
+                    # No such user in user database table, but an avatar has been updloaded for temp new user
+                    return res.sendfile sails.config.constants.uploadFolderPath + foundTempUser.avatarUrl
         .catch (err) -> res.send 400, err
 
     getUserInfo: (req, res) ->
@@ -294,8 +289,8 @@ module.exports =
             foundUser.password = ''
             foundUser.loginToken = ''
             userObject = foundUser
-            Role.findOne id: userObject.role
             userObject.avatar = sails.config.constants.userAvatarBaseUrl + userObject.id
+            Role.findOne id: userObject.role
         .then (foundRole) ->
             userObject.role = foundRole
             res.json userObject

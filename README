@@ -31,6 +31,7 @@ been utilized:
 --------------------------------------- iOS ---------------------------------------
 - iOS folder contains the iOS native app written in Swift with some third party 
 	libraries written in Objective-C.
+- Targeting iOS version is iOS 8.1 and higher
 - Thrid party lib utilized:
 	* JTCalendar - Shows calendar view
 	* MGSwipeTableCell - Allows swipe table cell to delete related table data
