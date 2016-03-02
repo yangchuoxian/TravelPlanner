@@ -54,7 +54,7 @@ app.controller 'UserListController', ['$scope', '$http', '$modal', 'listTypes', 
     paginationService.getPaginatedModels $scope.data, 1
     $scope.getUsersWithRole = (e, role) ->
         e.preventDefault()
-        $scope.data.listType = listService.renewListType '/get_users_with_role', listTypes[3].index, listTypes[3].name + ' - ' + role.name, role.id
+        $scope.data.listType = listService.renewListType '/get_users_with_role', listTypes[4].index, listTypes[4].name + ' - ' + role.name, role.id
         paginationService.getPaginatedModels $scope.data, 1
     # change selected users role to designated role
     $scope.changeUserRole = ->

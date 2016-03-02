@@ -18,4 +18,5 @@ app.value 'listTypes', [
     {'index': 2, 'name': 'Search results'}
     {'index': 3, 'name': 'Sorted'}
     {'index': 4, 'name': 'Time range'}
+    {'index': 5, 'name': 'User role'}
 ]
