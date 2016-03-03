@@ -24,7 +24,7 @@ module.exports =
         return res.send(400, sails.__ 'Password must be 6-20 character long') if password.length < 6 or password.length > 20
         User.findOne username: username
         .then (foundUserWithUsername) ->    # check if username is unique
-            return Promise.reject sails.__ 'User with that username already exists' if foundUserWithUsername
+            return Promise.reject sails.__ 'Username already exists' if foundUserWithUsername
             User.findOne email: email
         .then (foundUserWithEmail) ->       # check if email is unique
             return Promise.reject sails.__ 'User with that email already exists' if foundUserWithEmail
@@ -119,7 +119,7 @@ module.exports =
             if username     # Check if the new username already exists for a different user
                 User.findOne username: username
                 .then (foundUserWithUsername) ->
-                    return Promise.reject sails.__ 'User with that username already exists' if foundUserWithUsername and foundUserWithUsername.id isnt userId
+                    return Promise.reject sails.__ 'Username already exists' if foundUserWithUsername and foundUserWithUsername.id isnt userId
                 .catch (err) -> Promise.reject err
                 ### End of user input validation ###
         .then ->
