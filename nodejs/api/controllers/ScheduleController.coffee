@@ -16,13 +16,13 @@ module.exports =
         username = req.param 'username'
         comment = req.param 'comment'
         ### start input validation ###
-        return res.send(400, sails.__ 'Please enter city of departure') if not cityOfDeparture
-        return res.send(400, sails.__ 'Please enter city of arrival') if not cityOfArrival
-        return res.send(400, sails.__ 'Please enter date of departure') if not startDate
-        return res.send(400, sails.__ 'Please enter date of arrival') if not endDate
-        return res.send(400, sails.__ 'Please provide username') if not username
+        return res.send(400, sails.__ 'Departure city empty') if not cityOfDeparture
+        return res.send(400, sails.__ 'Arrival city empty') if not cityOfArrival
+        return res.send(400, sails.__ 'Start date empty') if not startDate
+        return res.send(400, sails.__ 'End date empty') if not endDate
+        return res.send(400, sails.__ 'Username empty') if not username
         if comment
-            return res.send(400, sails.__ 'Comment should not be longer than 500 characters') if comment.length > 500
+            return res.send(400, sails.__ 'Comment too long') if comment.length > 500
         moment = require 'moment'
         startDate = new Date startDate
         endDate = new Date endDate
@@ -58,12 +58,12 @@ module.exports =
         endDate = req.param 'endDate'
         comment = req.param 'comment'
         ### start input validation ###
-        return res.send(400, sails.__ 'Please enter city of departure') if not cityOfDeparture
-        return res.send(400, sails.__ 'Please enter city of arrival') if not cityOfArrival
-        return res.send(400, sails.__ 'Please enter date of departure') if not startDate
-        return res.send(400, sails.__ 'Please enter date of arrival') if not endDate
+        return res.send(400, sails.__ 'Departure city empty') if not cityOfDeparture
+        return res.send(400, sails.__ 'Arrival city empty') if not cityOfArrival
+        return res.send(400, sails.__ 'Start date empty') if not startDate
+        return res.send(400, sails.__ 'End date empty') if not endDate
         if comment
-            return res.send(400, sails.__ 'Comment should not be longer than 500 characters') if comment.length > 500
+            return res.send(400, sails.__ 'Comment too long') if comment.length > 500
         moment = require 'moment'
         startDate = new Date startDate
         endDate = new Date endDate
@@ -237,12 +237,12 @@ module.exports =
         comment = req.param 'comment'
 
         ### Start input validation ###
-        return res.send(400, sails.__ 'Please enter city of departure') if not cityOfDeparture
-        return res.send(400, sails.__ 'Please enter city of arrival') if not cityOfArrival
-        return res.send(400, sails.__ 'Please enter date of departure') if not startDate
-        return res.send(400, sails.__ 'Please enter date of arrival') if not endDate
+        return res.send(400, sails.__ 'Departure city empty') if not cityOfDeparture
+        return res.send(400, sails.__ 'Arrival city empty') if not cityOfArrival
+        return res.send(400, sails.__ 'Start date empty') if not startDate
+        return res.send(400, sails.__ 'End date empty') if not endDate
         if comment
-            return res.send(400, sails.__ 'Comment should not be longer than 500 characters') if comment.length > 500
+            return res.send(400, sails.__ 'Comment too long') if comment.length > 500
         moment = require 'moment'
         startDate = new Date startDate
         endDate = new Date endDate
@@ -278,13 +278,13 @@ module.exports =
         username = req.param 'username'
         comment = req.param 'comment'
         ### Start input validation ###
-        return res.send(400, sails.__ 'Please enter city of departure') if not cityOfDeparture
-        return res.send(400, sails.__ 'Please enter city of arrival') if not cityOfArrival
-        return res.send(400, sails.__ 'Please enter date of departure') if not startDate
-        return res.send(400, sails.__ 'Please enter date of arrival') if not endDate
-        return res.send(400, sails.__ 'Please provide username') if not username
+        return res.send(400, sails.__ 'Departure city empty') if not cityOfDeparture
+        return res.send(400, sails.__ 'Arrival city empty') if not cityOfArrival
+        return res.send(400, sails.__ 'Start date empty') if not startDate
+        return res.send(400, sails.__ 'End date empty') if not endDate
+        return res.send(400, sails.__ 'Username empty') if not username
         if comment
-            return res.send(400, sails.__ 'Comment should not be longer than 500 characters') if comment.length > 500
+            return res.send(400, sails.__ 'Comment too long') if comment.length > 500
         moment = require 'moment'
         startDate = new Date startDate
         endDate = new Date endDate

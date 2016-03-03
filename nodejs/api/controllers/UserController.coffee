@@ -20,7 +20,7 @@ module.exports =
         return res.send(400, sails.__ 'Please enter username') if not username
         return res.send(400, sails.__ 'Please enter password') if not password
         return res.send(400, sails.__ 'Please enter email') if not email
-        return res.send(400, sails.__ 'Please enter valid email') if not validator.isEmail email
+        return res.send(400, sails.__ 'Email invalid') if not validator.isEmail email
         return res.send(400, sails.__ 'Password must be 6-20 character long') if password.length < 6 or password.length > 20
         User.findOne username: username
         .then (foundUserWithUsername) ->    # check if username is unique
@@ -108,8 +108,8 @@ module.exports =
         userObjectToUpdate = ''
         ### Start user input validation ###
         validator = require 'validator'
-        return res.send(400, sails.__ 'Please enter valid email') if email and not validator.isEmail email
-        return res.send(400, sails.__ 'Please enter valid mobile phone') if phoneNumber and not validator.isMobilePhone phoneNumber, 'en-US'
+        return res.send(400, sails.__ 'Email invalid') if email and not validator.isEmail email
+        return res.send(400, sails.__ 'Mobile phone invalid') if phoneNumber and not validator.isMobilePhone phoneNumber, 'en-US'
         return res.send(400, sails.__ 'Citizen ID too long') if citizenID and citizenID.length > 30
         return res.send(400, sails.__ 'Please provide user id') if not userId
         User.findOne id: userId
@@ -169,8 +169,8 @@ module.exports =
         bcrypt = Promise.promisifyAll require 'bcrypt'
         ### Start user input validation ###
         validator = require 'validator'
-        return res.send(400, sails.__ 'Please enter valid email') if userInfo.email and not validator.isEmail userInfo.email
-        return res.send(400, sails.__ 'Please enter valid mobile phone') if userInfo.phone and not validator.isMobilePhone userInfo.phone, 'en-US'
+        return res.send(400, sails.__ 'Email invalid') if userInfo.email and not validator.isEmail userInfo.email
+        return res.send(400, sails.__ 'Mobile phone invalid') if userInfo.phone and not validator.isMobilePhone userInfo.phone, 'en-US'
         return res.send(400, sails.__ 'Citizen ID too long') if userInfo.citizenid and userInfo.citizenid.length > 30
         return res.send(400, sails.__ 'Please provide user id') if not userInfo.id
         userObjectToUpdate = ''
