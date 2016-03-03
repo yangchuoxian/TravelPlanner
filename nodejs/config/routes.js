@@ -62,28 +62,18 @@ module.exports.routes = {
   'post /delete_user': 'UserController.deleteUser',
   'post /update_user_role': 'UserController.updateUserRole',
   'post /update_basic_user_info': 'UserController.updateBasicUserInfo',
-  'post /update_user': 'UserController.updateUser',
   'post /upload_user_avatar': 'UserController.uploadUserAvatar',
   'get /user_avatar': 'UserController.getUserAvatar',
   'post /submit_new_user': 'UserController.submitNewUser',
-  'post /change_user_password': 'UserController.changeUserPassword',
   // Requests from mobile
   'post /mobile/submit_login': 'UserController.submitLogin',
-  'get /mobile/logout': 'UserController.logout',
-  'get /mobile/get_user_roles': 'UserController.getAllUserRoles',
-  'get /mobile/get_user_info': 'UserController.getUserInfo',
-  'get /mobile/get_users': 'UserController.getUsersWithCriteria',
-  'get /mobile/search_users': 'UserController.getUsersWithCriteria',
-  'get /mobile/order_users': 'UserController.getUsersWithCriteria',
-  'get /mobile/get_users_with_role': 'UserController.getUsersWithCriteria',
-  'post /mobile/delete_user': 'UserController.deleteUser',
-  'post /mobile/update_user_role': 'UserController.updateUserRole',
   'post /mobile/update_user': 'UserController.updateUser',
-  'post /mobile/upload_user_avatar': 'UserController.uploadUserAvatar',
-  'get /mobile/user_avatar': 'UserController.getUserAvatar',
-  'post /mobile/submit_new_user': 'UserController.submitNewUser',
   'post /mobile/change_user_password': 'UserController.changeUserPassword',
-
+  'post /mobile/upload_user_avatar': 'UserController.uploadUserAvatar',
+  'post /mobile/submit_new_user': 'UserController.submitNewUser',
+  'get /mobile/user_avatar': 'UserController.getUserAvatar',
+  'get /mobile/get_user_info': 'UserController.getUserInfo',
+  'get /mobile/logout': 'UserController.logout',
   /**
    * Routes for schedule model CRUD
    */

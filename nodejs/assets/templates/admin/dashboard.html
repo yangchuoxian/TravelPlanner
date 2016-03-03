@@ -11,5 +11,62 @@
     </div>
 </div>
 <!-- END OF DASHBOARD PAGE TITLE -->
-<div ng-controller="DashboardController">
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-sm-12">
+							<i class="fa fa-file"></i>
+							&nbsp;&nbsp;REST API list
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<h3>Web SPA:</h3>
+				<pre><b>post /submit_login</b> -- Submit login with username and password</pre>
+				<pre><b>get /logout</b> -- Log user out, logged in user id will be removed from server session</pre>
+				<pre><b>get /get_user_roles</b> -- Get all user roles<br></pre>
+				<pre><b>get /get_users</b> -- Get paginated users<br></pre>
+				<pre><b>get /search_users</b> -- Get paginated search results of users, user's username or name will be searched to see if it contains search keyword<br></pre>
+				<pre><b>get /order_users</b> -- Get paginated ordered users, users can be ordered by createdAt or updatedAt/lastTimeLogin<br></pre>
+				<pre><b>get /get_users_with_role</b> -- Get paginated users with specific role<br></pre>
+				<pre><b>get /get_user_info</b> -- Get single user information<br></pre>
+				<pre><b>post /update_user_role</b> -- Update one or more users' role<br></pre>
+				<pre><b>post /update_basic_user_info</b> -- update single user information<br></pre>
+				<pre><span><b>post /upload_user_avatar</b> -- Upload user avatar image file, the user can either be an existing user or a new user</span><br></pre>
+				<pre><b>get /user_avatar</b> -- Get user avatar with given user id<br></pre>
+				<pre><b>post /submit_new_user</b> -- Create a new user<br></pre>
+				<p><br></p>
+				<pre><b><i>get /get_schedules</i></b> -- Get paginated schedules<br></pre>
+				<pre><b>get /get_schedule_info</b> -- Get single schedule information with given schedule id<br></pre>
+				<pre><b>get /search_schedules</b> -- Get paginated search results of schedules, schedule's cityOfDeparture, cityOfArrival, comment or username will be searched to check if any of it contains the search keyword<br></pre>
+				<pre><b>get /order_schedules</b> -- Get paginated ordered schedules, schedules can be ordered by startDate<br></pre>
+				<pre><b>post /delete_schedule</b> -- Delete one or more schedules<br></pre>
+				<pre><b>post /submit_new_schedule</b> -- Create a new schedule<br></pre>
+				<pre><b>post /update_basic_schedule_info</b> -- Update schedule<br></pre>
+				<br>
+				<h3>iOS:</h3>
+				<pre><b>post /mobile/submit_login</b> -- Submit login from iOS app with username and password, after login, a loginToken will be generated to help identify further requests from iOS to check whether this user is authenticated or not<br></pre>
+				<pre><b>post /mobile/update_user</b> -- Update user information from iOS app<br></pre>
+				<pre><b>get /mobile/logout</b> -- Log out the user from iOS app, the loginToken for this user saved in database will be removed<br></pre>
+				<pre><b>post /mobile/change_user_password</b> -- Change user password, old password needs to be provided<br></pre>
+				<pre><b>post /mobile/upload_user_avatar</b> -- Upload user avatar for either an existing user or a new user that is registering at the moment<br></pre>
+				<pre><b>post /mobile/submit_new_user</b> -- User registration, username, password and email needed<br></pre>
+				<pre><b>get /mobile/user_avatar</b> -- Get and download user avatar image<br></pre>
+				<pre><b>get /mobile/get_user_info</b> -- Get user information<br></pre>
+				<p><br></p>
+				<pre><b>get /mobile/filter_schedules</b> -- Get paginated schedules whose startDates are within a given date range<br></pre>
+				<pre><b>get /mobile/search_schedules</b> -- Get paginated search results of schedules,&nbsp;schedule's cityOfDeparture, cityOfArrival, comment or username will be searched to check if any of it contains the search keyword<br></pre>
+				<pre><b>post /mobile/change_schedule</b> -- Change a single schedule information<br></pre>
+				<pre><b>post /mobile/delete_user_schedule</b> -- Delete a schedule that currently logged in user owns<br></pre>
+				<pre><b>post /mobile/create_new_schedule</b> -- Create a new schedule for currently logged in user<br></pre>
+				<p><br></p>
+				<p><br></p>
+				<p><br></p>
+			</div>	
+		</div>
+	</div>
 </div>
