@@ -4,6 +4,7 @@ module.exports.constants = {
 	userAvatarBaseUrl: '/user_avatar?id=',
 	defaultAvatarUrl: process.cwd() + '/assets/images/default-avatar.jpg',
 	itemsPerPage: 10,
+	avatarImageSize: 150,
 	/**
 	 * View indexes
 	 */
