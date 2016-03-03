@@ -27,7 +27,7 @@ class ChangeUserInfoViewController: UIViewController {
             placeholderText = "Enter username"
             inputFieldText = Singleton_CurrentUser.sharedInstance.username
             iconName = "person"
-            self.input_userInfo.keyboardType = .Default
+            self.input_userInfo.keyboardType = .NamePhonePad
         } else if self.currentUserInfo == .Email {
             viewControllerTitle = "Change email"
             placeholderText = "Enter email"
